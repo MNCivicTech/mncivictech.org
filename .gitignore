@@ -1,0 +1,46 @@
+# local
+.idea
+.vscode
+.DS_Store
+
+# next
+logs
+*.log
+npm-debug.log*
+
+# tests
+lib-cov
+coverage
+.nyc_output
+
+# build
+build
+.next
+pids
+*.pid
+*.seed
+
+# dependencies
+node_modules
+jspm_packages
+
+# npm
+.npm
+.node_repl_history
+
+# netlify
+.netlify
+
+# playwright
+.playwright/
+.playwrightrc.js
+.playwrightcli.dev.ts
+.playwrightcli.ts
+playwright-report/
+test-results/
+report/
+trace/
+
+
+# vercel
+.vercel
