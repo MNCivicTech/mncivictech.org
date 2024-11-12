@@ -6,6 +6,6 @@ describe("home page", () => {
     render(<Home />);
 
     expect(screen.getByText("MN Civic Tech")).toBeInTheDocument();
-    expect(screen.getByText("coming soon ...")).toBeInTheDocument();
+    expect(screen.getByText("🚧 coming soon 🚧")).toBeInTheDocument();
   });
 });
