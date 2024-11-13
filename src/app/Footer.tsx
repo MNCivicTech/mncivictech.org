@@ -34,12 +34,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about#code-of-conduct" className="hover:underline">
+                <Link href="/about/code-of-conduct" className="hover:underline">
                   Code of Conduct
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:underline">
+                <Link href="/about#contact" className="hover:underline">
                   Contact
                 </Link>
               </li>
@@ -62,6 +62,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                {/* FIXME: Update Slack Link */}
                 <Link
                   href="https://slack.com"
                   className="flex items-center hover:underline"
@@ -73,6 +74,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                {/* FIXME: Update Slack Linkedin Link */}
                 <Link
                   href="https://linkedin.com"
                   className="flex items-center hover:underline"

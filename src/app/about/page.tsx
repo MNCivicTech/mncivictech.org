@@ -1,3 +1,5 @@
+import SlackIcon from "@/icons/slack";
+import { Button } from "@/ui";
 import Link from "next/link";
 
 const leadershipTeam = [
@@ -17,22 +19,23 @@ const leadershipTeam = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto bg-gradient-to-b from-brown-300 to-brown-50 p-12 pt-32 text-brown-900 md:p-36">
+    <div className="mx-auto bg-brown-50 p-6 pt-32 text-brown-900 md:p-36">
+      {/*<div className="mx-auto bg-gradient-to-b from-brown-300 to-brown-50 p-12 pt-32 text-brown-900 md:p-36">*/}
       <h1 className="mb-8 font-bold text-4xl">About MN Civic Tech</h1>
 
-      <section className="mb-16">
+      <section className="mb-12 md:mb-16">
         <p className="text-brown-900">
-          MN Civic Tech is a volunteer-driven organization dedicated to
-          leveraging technology for the public good in Minnesota. We bring
-          together technologists, public servants, and community advocates to
-          collaborate on projects that address local challenges and improve the
-          lives of Minnesotans. Our mission is to foster innovation, promote
-          civic engagement, and create a more connected and efficient state
-          through the power of technology.
+          MN Civic Tech is a volunteer-driven organization dedicated to building
+          technology for the public good in Minnesota. We bring together
+          technologists, public servants, and community advocates to collaborate
+          on projects that address local challenges and improve the lives of
+          Minnesotans. Our mission is to foster innovation, promote civic
+          engagement, and create a more connected and efficient state through
+          the power of technology.
         </p>
       </section>
 
-      <section id="leadership" className="mb-16 scroll-mt-32">
+      <section id="leadership" className="mb-12 scroll-mt-32 md:mb-16">
         <h2 className="mb-6 font-semibold text-3xl">Leadership Team</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {leadershipTeam.map((member) => (
@@ -44,9 +47,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mb-16">
+      <section className="mb-12 md:mb-16">
         <h2 className="mb-6 font-semibold text-3xl">Code of Conduct</h2>
-        <div className="rounded-lg bg-brown-500 p-6">
+        <div className="rounded-lg bg-brown-300 p-6">
           <p className="mb-4 text-gray-700">
             At MN Civic Tech, we are committed to providing a welcoming and
             inclusive environment for all participants. We expect all members,
@@ -54,15 +57,46 @@ export default function AboutPage() {
             courtesy, regardless of their background or identity. Our code of
             conduct prohibits harassment, discrimination, and disruptive
             behavior in any form. We encourage collaboration, open
-            communication, and constructive feedback to maintain a positive and
-            productive community.
+            communication, and feedback to maintain a positive and productive
+            community.
           </p>
 
           <button type="button">
-            <Link href="/code-of-conduct" className="underline">
-              Read Full Code of Conduct
+            <Link href="/about/code-of-conduct" className="underline">
+              {"-> Read Full Code of Conduct"}
             </Link>
           </button>
+        </div>
+      </section>
+
+      <section id="contact" className="mb-12 scroll-mt-32 md:mb-16">
+        <h2 className="mb-6 font-semibold text-3xl">Contact</h2>
+        <div>
+          <p className="mb-4 text-gray-700">
+            Get in contact with us via this form, emailing us at{" "}
+            <Link
+              href="mailto:hello@mncivictech.org"
+              className="italic hover:underline"
+            >
+              hello@mncivictech.org
+            </Link>
+            {", "}
+            or by joining the
+            {/*FIXME: Update Slack Link*/}
+            <Link href="https://slack.com" className="inline hover:underline">
+              <SlackIcon className="mr-0.5 ml-1.5 inline size-4" />
+              Slack
+            </Link>
+            .
+          </p>
+
+          <p className="my-48 text-extrabold">TODO: BUILD FORM HERE</p>
+
+          <form>
+            <Button type="submit" variant="brown" className="px-8">
+              Submit
+            </Button>
+          </form>
         </div>
       </section>
     </div>

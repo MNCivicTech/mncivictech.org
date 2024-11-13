@@ -4,6 +4,8 @@ const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
+      white: "#FFFFFF",
+      black: "#000000",
       green: {
         50: "#D8F3DC",
         100: "#B7E4C7",
@@ -26,7 +28,7 @@ const config: Config = {
         600: "#9163CB",
         700: "#815AC0",
         800: "#7251B5",
-        900: "#6247AA",
+        900: "#48347D",
       },
       blue: {
         50: "#A9D6E5",
@@ -41,8 +43,10 @@ const config: Config = {
         900: "#012A4A",
       },
       brown: {
-        50: "#F5F1E9",
-        100: "#ECE3D3",
+        // 50: "#F5F1E9",
+        50: "#FFFAF1",
+        // 100: "#ECE3D3",
+        100: "#F5F1E9",
         200: "#E7DCC8",
         300: "#E2D5BD",
         400: "#D9C7A7",

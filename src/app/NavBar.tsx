@@ -14,7 +14,7 @@ export default function Navbar() {
       <Link
         href={href}
         onClick={() => setIsOpen(false)}
-        className="rounded-md px-1 py-2 text-brown-900 text-sm hover:bg-gray-700 hover:underline lg:px-3"
+        className="rounded-md px-1 py-2 text-brown-900 text-sm hover:underline lg:px-3"
       >
         {children}
       </Link>
@@ -29,7 +29,7 @@ export default function Navbar() {
       <Link
         href={href}
         onClick={() => setIsOpen(false)}
-        className="block rounded-md px-3 py-2 font-medium text-gray-800 text-sm hover:bg-gray-700 hover:underline"
+        className="block rounded-md px-3 py-2 font-medium text-sm hover:underline"
       >
         {children}
       </Link>
@@ -38,8 +38,8 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-4 right-4 left-4 z-10">
-      <div className="rounded-lg bg-brown-50/50 bg-white/30 shadow-lg backdrop-blur-xl">
-        <div className="mx-0 max-w-7xl px-4 sm:px-6 lg:mx-8 lg:px-8">
+      <div className="rounded-lg bg-white/30 shadow-lg backdrop-blur-xl">
+        <div className="mx-0 px-4 sm:px-6 lg:mx-8 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
@@ -55,7 +55,7 @@ export default function Navbar() {
                 <NavLink href="/get-involved">Get Involved</NavLink>
                 <NavLink href="/projects">Projects</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
-                <NavLink href="/code-of-conduct">Code of Conduct</NavLink>
+                <NavLink href="/donate">Donate</NavLink>
                 <NavLink href="/about">About</NavLink>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-inset"
+                className="inline-flex items-center justify-center rounded-md p-2 focus:outline-none"
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? (
@@ -83,9 +83,7 @@ export default function Navbar() {
               <MobileNavLink href="/get-involved">Get Involved</MobileNavLink>
               <MobileNavLink href="/projects">Projects</MobileNavLink>
               <MobileNavLink href="/blog">Blog</MobileNavLink>
-              <MobileNavLink href="/code-of-conduct">
-                Code of Conduct
-              </MobileNavLink>
+              <MobileNavLink href="/donate">Donate</MobileNavLink>
               <MobileNavLink href="/about">About</MobileNavLink>
             </div>
           </div>
