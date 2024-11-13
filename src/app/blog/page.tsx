@@ -1,0 +1,13 @@
+import LogoIcon from "@/icons/logo";
+
+export default function ProjectsPage() {
+  return (
+    <main className="flex min-h-screen flex-col items-center bg-green-50 p-12 pt-32">
+      <LogoIcon className="size-36" />
+
+      <h1 className="my-8 text-center font-bold text-green-800">Blog</h1>
+
+      <p className="text-green-800">🚧 coming soon 🚧</p>
+    </main>
+  );
+}

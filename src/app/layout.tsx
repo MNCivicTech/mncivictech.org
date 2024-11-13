@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 
+import Footer from "@/app/Footer";
+import NavBar from "@/app/NavBar";
+
 import "./tailwind.css";
 
 export const metadata: Metadata = {
@@ -88,7 +91,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={JetBrainsFont.className}>
-      <body>{children}</body>
+      <body>
+        <NavBar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
