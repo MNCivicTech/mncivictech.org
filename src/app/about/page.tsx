@@ -63,7 +63,7 @@ export default function AboutPage() {
 
           <button type="button">
             <Link href="/about/code-of-conduct" className="underline">
-              {"-> Read Full Code of Conduct"}
+              {"Read Full Code of Conduct ->"}
             </Link>
           </button>
         </div>

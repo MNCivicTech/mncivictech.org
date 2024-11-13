@@ -1,7 +1,10 @@
+import { Button } from "@/ui";
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <div>
-      <div className="grid grid-cols-1 items-center gap-4 md:gap-16 md:py-16 lg:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-4 md:gap-16 md:py-16 lg:grid-cols-2 text-blue-900">
         <h1 className="mb-4 font-bold text-3xl sm:text-5xl lg:text-6xl">
           Building <br /> Civic Tech <br /> for Minnesota
         </h1>
@@ -13,8 +16,20 @@ export default function Hero() {
         </p>
 
         <div className="flex justify-between gap-8 sm:justify-start">
-          <button type="button">Get Involved</button>
-          <button type="button">Learn More</button>
+          <Link href="/get-involved">
+            <Button
+              type="button"
+              className="bg-blue-900 text-white hover:bg-blue-900/90"
+            >
+              {"Get Involved ->"}
+            </Button>
+          </Link>
+
+          <Link href="/about">
+            <Button type="button" variant="outline">
+              Learn more
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

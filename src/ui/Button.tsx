@@ -12,6 +12,7 @@ const buttonVariants = cva(
         blue: "bg-blue-200 text-blue-900 hover:bg-blue-200/90",
         brown: "bg-brown-400 text-brown-900 hover:bg-brown-400/90",
         purple: "bg-purple-400 text-purple-900 hover:bg-purple-400/90",
+        white: "bg-white text-purple-900 hover:bg-white/90",
         outline: "border border-input hover:bg-accent",
       },
       size: {
