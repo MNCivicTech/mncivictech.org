@@ -5,9 +5,60 @@ import type { ReactNode } from "react";
 import "./tailwind.css";
 
 export const metadata: Metadata = {
-  title: "MN Civic Tech",
+  metadataBase: new URL("https://www.mncivictech.org"),
+  title: {
+    template: "%s | MN Civic Tech",
+    default: "MN Civic Tech",
+  },
   description:
     "Connecting technologists, public servants, and community advocates to improve Civic Tech for Minnesota",
+  applicationName: "MN Civic Tech",
+  keywords: [
+    "minnesota civic tech",
+    "mn civic tech",
+    "civic tech",
+    "minnesota tech",
+    "minnesota software engineer",
+  ],
+  referrer: "origin-when-cross-origin",
+  openGraph: {
+    title: "MN Civic Tech",
+    description:
+      "Connecting technologists, public servants, and community advocates to improve Civic Tech for Minnesota",
+    type: "website",
+    url: "https://www.mncivictech.org",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "16x16 32x32 64x64",
+      },
+      {
+        url: "/favicons/196x196.png",
+        sizes: "196x196",
+      },
+      {
+        url: "/favicons/favicon-96.png",
+        sizes: "96x96",
+      },
+    ],
+    apple: [
+      {
+        url: "/favicons/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+    ],
+    shortcut: [
+      {
+        url: "/favicon.ico",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
 };
 
 const JetBrainsFont = localFont({
