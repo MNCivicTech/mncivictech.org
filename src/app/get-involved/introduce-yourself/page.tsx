@@ -95,7 +95,7 @@ export default function IntroductionForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
 
-    // Here you would typically send the form data to your backend
+    // FIXME: Set up slack hook
     console.log(values);
 
     setTimeout(() => {

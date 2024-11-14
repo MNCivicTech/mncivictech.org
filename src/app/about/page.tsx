@@ -1,3 +1,4 @@
+import ContactForm from "@/app/about/ContactForm";
 import SlackIcon from "@/icons/slack";
 import { Button } from "@/ui";
 import Link from "next/link";
@@ -53,9 +54,11 @@ export default function AboutPage() {
             At MN Civic Tech, we are committed to providing a welcoming and
             inclusive environment for all participants. We expect all members,
             volunteers, and attendees to treat each other with respect and
-            courtesy, regardless of their background or identity. Our code of
-            conduct prohibits harassment, discrimination, and disruptive
-            behavior in any form. We encourage collaboration, open
+            courtesy, regardless of their background or identity.
+            <br />
+            <br />
+            Our code of conduct prohibits harassment, discrimination, and
+            disruptive behavior in any form. We encourage collaboration, open
             communication, and feedback to maintain a positive and productive
             community.
           </p>
@@ -89,13 +92,7 @@ export default function AboutPage() {
             .
           </p>
 
-          <p className="my-48 text-extrabold">TODO: BUILD FORM HERE</p>
-
-          <form>
-            <Button type="submit" variant="brown" className="px-8">
-              Submit
-            </Button>
-          </form>
+          <ContactForm />
         </div>
       </section>
     </div>

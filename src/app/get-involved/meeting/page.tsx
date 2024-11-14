@@ -19,7 +19,7 @@ export default function MeetingPage() {
       </p>
 
       {/*FIXME: Fix Meeting Link*/}
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col gap-4 md:flex-row">
         <Link href="/" className="">
           <Button variant="blue" className="w-full">
             Zoom Meeting
