@@ -1,6 +1,5 @@
 import ContactForm from "@/app/about/ContactForm";
 import SlackIcon from "@/icons/slack";
-import { Button } from "@/ui/Button";
 import Link from "next/link";
 
 const leadershipTeam = [
