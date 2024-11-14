@@ -1,6 +1,6 @@
 import GithubIcon from "@/icons/github";
 import LinkedinIcon from "@/icons/linkedin";
-import LogoIcon from "@/icons/logo";
+import LogoIcon from "@/icons/logos/logo";
 import SlackIcon from "@/icons/slack";
 import Link from "next/link";
 

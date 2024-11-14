@@ -1,4 +1,4 @@
-import LogoIcon from "@/icons/logo";
+import LogoIcon from "@/icons/logos/logo";
 
 export default function ProjectsPage() {
   return (

@@ -6,6 +6,7 @@ const config: Config = {
     colors: {
       white: "#FFFFFF",
       black: "#000000",
+      red: "#ff645c",
       green: {
         50: "#D8F3DC",
         100: "#B7E4C7",
@@ -56,6 +57,10 @@ const config: Config = {
         800: "#534A3A",
         900: "#3E372B",
       },
+    },
+    fontFamily: {
+      sans: ["var(--font-geist-sans)"],
+      mono: ["var(--font-jetbrains)"],
     },
   },
   plugins: [],

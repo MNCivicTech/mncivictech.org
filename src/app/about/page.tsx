@@ -19,8 +19,7 @@ const leadershipTeam = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto bg-brown-50 p-6 pt-32 text-brown-900 md:p-36">
-      {/*<div className="mx-auto bg-gradient-to-b from-brown-300 to-brown-50 p-12 pt-32 text-brown-900 md:p-36">*/}
+    <div className="mx-auto bg-brown-50/25 p-6 pt-32 text-brown-900 md:p-36">
       <h1 className="mb-8 font-bold text-4xl">About MN Civic Tech</h1>
 
       <section className="mb-12 md:mb-16">
@@ -40,7 +39,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {leadershipTeam.map((member) => (
             <div key={member.name}>
-              <h4 className="font-bold">{member.name}</h4>
+              <h4 className="font-bold text-lg">{member.name}</h4>
               <p className="font-medium">{member.role}</p>
             </div>
           ))}
@@ -49,8 +48,8 @@ export default function AboutPage() {
 
       <section className="mb-12 md:mb-16">
         <h2 className="mb-6 font-semibold text-3xl">Code of Conduct</h2>
-        <div className="rounded-lg bg-brown-300 p-6">
-          <p className="mb-4 text-gray-700">
+        <div className="rounded-lg bg-brown-300 p-6 font-mono">
+          <p className="mb-4">
             At MN Civic Tech, we are committed to providing a welcoming and
             inclusive environment for all participants. We expect all members,
             volunteers, and attendees to treat each other with respect and
@@ -76,14 +75,14 @@ export default function AboutPage() {
             Get in contact with us via this form, emailing us at{" "}
             <Link
               href="mailto:hello@mncivictech.org"
-              className="italic hover:underline"
+              className="italic underline"
             >
               hello@mncivictech.org
             </Link>
             {", "}
             or by joining the
             {/*FIXME: Update Slack Link*/}
-            <Link href="https://slack.com" className="inline hover:underline">
+            <Link href="https://slack.com" className="inline underline">
               <SlackIcon className="mr-0.5 ml-1.5 inline size-4" />
               Slack
             </Link>

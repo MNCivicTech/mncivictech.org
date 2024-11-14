@@ -1,7 +1,7 @@
 "use client";
 
 import CloseIcon from "@/icons/close";
-import LogoIcon from "@/icons/logo";
+import LogoIcon from "@/icons/logos/logo";
 import MenuIcon from "@/icons/menu";
 import Link from "next/link";
 import { type ReactNode, useState } from "react";
@@ -37,14 +37,14 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-4 right-4 left-4 z-10">
+    <nav className="fixed top-4 right-4 left-4 z-10 font-mono">
       <div className="rounded-lg bg-white/30 shadow-lg backdrop-blur-xl">
         <div className="mx-0 px-4 sm:px-6 lg:mx-8 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <LogoIcon className="size-12" />
-                <span className="ml-2 font-extrabold text-lg">
+                <span className="ml-2 font-bold font-sans text-lg">
                   MN Civic Tech
                 </span>
               </Link>

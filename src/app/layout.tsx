@@ -1,3 +1,4 @@
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
@@ -90,7 +91,10 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={JetBrainsFont.className}>
+    <html
+      lang="en"
+      className={`${JetBrainsFont.variable} ${GeistSans.variable}`}
+    >
       <body>
         <NavBar />
         {children}
