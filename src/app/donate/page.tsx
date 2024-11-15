@@ -1,4 +1,20 @@
 import LogoIcon from "@/icons/logos/logo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Donate",
+  description:
+    "Support MN Civic Tech’s mission with your donation. Help fund open-source, volunteer-driven projects that improve communities and make a lasting impact in Minnesota.",
+
+  openGraph: {
+    title: "Donate",
+    description:
+      "Support MN Civic Tech’s mission with your donation. Help fund open-source, volunteer-driven projects that improve communities and make a lasting impact in Minnesota.",
+  },
+  alternates: {
+    canonical: "/donate",
+  },
+};
 
 export default function DonatePage() {
   return (

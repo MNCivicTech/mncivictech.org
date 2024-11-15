@@ -1,4 +1,20 @@
 import PitchForm from "@/app/get-involved/pitch-a-project/PitchForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pitch a Project",
+  description:
+    "Pitch your project idea to MN Civic Tech! Share your vision and lead initiatives that use technology to address community needs in Minnesota.",
+
+  openGraph: {
+    title: "Pitch a Project",
+    description:
+      "Pitch your project idea to MN Civic Tech! Share your vision and lead initiatives that use technology to address community needs in Minnesota.",
+  },
+  alternates: {
+    canonical: "/get-involved/pitch-a-project",
+  },
+};
 
 export default function PitchAProjectPage() {
   return (

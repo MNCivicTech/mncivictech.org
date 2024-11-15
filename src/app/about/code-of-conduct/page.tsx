@@ -1,4 +1,20 @@
 import LogoIcon from "@/icons/logos/logo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Code of Conduct",
+  description:
+    "MN Civic Tech’s Code of Conduct ensures a welcoming, inclusive environment for all. Read our commitment to respect, diversity, and collaboration.",
+
+  openGraph: {
+    title: "Code of Conduct",
+    description:
+      "MN Civic Tech’s Code of Conduct ensures a welcoming, inclusive environment for all. Read our commitment to respect, diversity, and collaboration.",
+  },
+  alternates: {
+    canonical: "/about/code-of-conduct",
+  },
+};
 
 export default function CodeOfConductPage() {
   return (

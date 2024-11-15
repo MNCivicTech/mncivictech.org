@@ -6,7 +6,23 @@ import SproutIcon from "@/icons/logos/sprout";
 import TreeIcon from "@/icons/logos/tree";
 import SlackIcon from "@/icons/slack";
 import { GITHUB_LINK, SLACK_LINK } from "@/utils";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Get Involved",
+  description:
+    "Join MN Civic Tech to connect, collaborate, and make an impact. Introduce yourself, join a project, attend meetings, or pitch your own idea for community tech!",
+
+  openGraph: {
+    title: "Get Involved",
+    description:
+      "Join MN Civic Tech to connect, collaborate, and make an impact. Introduce yourself, join a project, attend meetings, or pitch your own idea for community tech!",
+  },
+  alternates: {
+    canonical: "/get-involved",
+  },
+};
 
 export default function GetInvolvedPage() {
   return (

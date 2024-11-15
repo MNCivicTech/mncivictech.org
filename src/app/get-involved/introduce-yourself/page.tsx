@@ -1,4 +1,20 @@
 import IntroductionForm from "@/app/get-involved/introduce-yourself/IntroductionForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Introduce Yourself",
+  description:
+    "Introduce yourself to MN Civic Tech! Share your skills, interests, and background to connect with projects and people who share your passion for civic tech.",
+
+  openGraph: {
+    title: "Introduce Yourself",
+    description:
+      "Introduce yourself to MN Civic Tech! Share your skills, interests, and background to connect with projects and people who share your passion for civic tech.",
+  },
+  alternates: {
+    canonical: "/get-involved/introduce-yourself",
+  },
+};
 
 export default function IntroduceYourselfPage() {
   return (

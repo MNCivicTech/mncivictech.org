@@ -1,6 +1,22 @@
 import LogoIcon from "@/icons/logos/logo";
+import type { Metadata } from "next";
 
-export default function ProjectsPage() {
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Read the latest from MN Civic Tech’s blog! Explore insights, updates, and stories about civic tech projects and community impact in Minnesota.",
+
+  openGraph: {
+    title: "Blog",
+    description:
+      "Read the latest from MN Civic Tech’s blog! Explore insights, updates, and stories about civic tech projects and community impact in Minnesota.",
+  },
+  alternates: {
+    canonical: "/blog",
+  },
+};
+
+export default function BlogPage() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-green-50 p-12 pt-32">
       <LogoIcon className="size-36" />

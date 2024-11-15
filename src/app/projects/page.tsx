@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/ui/Card";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 export interface Project {
@@ -17,6 +18,21 @@ export interface Project {
   github?: string;
   link?: string;
 }
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore MN Civic Tech’s current projects, where open-source tech initiatives drive positive change in Minnesota. Join us in building a stronger community!",
+
+  openGraph: {
+    title: "Projects",
+    description:
+      "Explore MN Civic Tech’s current projects, where open-source tech initiatives drive positive change in Minnesota. Join us in building a stronger community!",
+  },
+  alternates: {
+    canonical: "/projects",
+  },
+};
 
 const currentProjects: Project[] = [
   // FIXME: Add projects here

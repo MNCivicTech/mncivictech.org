@@ -1,7 +1,23 @@
 import ContactForm from "@/app/about/ContactForm";
 import SlackIcon from "@/icons/slack";
 import { SLACK_LINK } from "@/utils";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about MN Civic Tech, a volunteer nonprofit using technology to solve local challenges in Minnesota. Meet our team, read our code of conduct, and connect!",
+
+  openGraph: {
+    title: "About",
+    description:
+      "Learn about MN Civic Tech, a volunteer nonprofit using technology to solve local challenges in Minnesota. Meet our team, read our code of conduct, and connect!",
+  },
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 const leadershipTeam = [
   {

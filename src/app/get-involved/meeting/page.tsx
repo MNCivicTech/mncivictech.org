@@ -1,5 +1,21 @@
 import { Button } from "@/ui/Button";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Monthly Meeting",
+  description:
+    "Join MN Civic Tech’s monthly meetings to connect with team members, discuss projects, and brainstorm ideas. Contribute to civic tech initiatives in Minnesota!",
+
+  openGraph: {
+    title: "Monthly Meeting",
+    description:
+      "Join MN Civic Tech’s monthly meetings to connect with team members, discuss projects, and brainstorm ideas. Contribute to civic tech initiatives in Minnesota!",
+  },
+  alternates: {
+    canonical: "/get-involved/meeting",
+  },
+};
 
 export default function MeetingPage() {
   return (
