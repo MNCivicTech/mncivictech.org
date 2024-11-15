@@ -51,17 +51,6 @@ export default function Footer() {
             <h2 className="mb-4 font-bold">Connect</h2>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="https://github.com/MNCivicTech"
-                  className="flex items-center hover:underline"
-                >
-                  <div>
-                    <GithubIcon className="mr-2 size-5" />
-                  </div>
-                  GitHub
-                </Link>
-              </li>
-              <li>
                 {/* FIXME: Update Slack Link */}
                 <Link
                   href="https://slack.com"
@@ -73,6 +62,19 @@ export default function Footer() {
                   Slack
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  href="https://github.com/MNCivicTech"
+                  className="flex items-center hover:underline"
+                >
+                  <div>
+                    <GithubIcon className="mr-2 size-5" />
+                  </div>
+                  GitHub
+                </Link>
+              </li>
+
               <li>
                 {/* FIXME: Update Slack Linkedin Link */}
                 <Link
@@ -93,12 +95,31 @@ export default function Footer() {
             <h2 className="mb-4 font-bold">Get Involved</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/give-a-talk" className="hover:underline">
-                  Give a Talk
+                <Link
+                  href="/get-involved/introduce-yourself"
+                  className="hover:underline"
+                >
+                  Introduce yourself
                 </Link>
               </li>
+
               <li>
-                <Link href="/pitch-a-project" className="hover:underline">
+                <Link href="/get-involved/meeting" className="hover:underline">
+                  Monthly Meeting
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/projects" className="hover:underline">
+                  Join a project
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/get-involved/pitch-a-project"
+                  className="hover:underline"
+                >
                   Pitch a Project
                 </Link>
               </li>

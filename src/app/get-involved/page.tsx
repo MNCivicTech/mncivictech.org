@@ -120,10 +120,13 @@ export default function GetInvolvedPage() {
         <div>
           <h2 className="font-semibold">Pitch a project</h2>
           <p className="mt-2 max-w-2xl text-sm md:text-base">
-            If you have a unique idea or see an opportunity for innovation,
-            bring it to the group! We welcome new project proposals and provide
-            support for those who want to lead initiatives. Your ideas could
-            inspire exciting new directions for our community.
+            If you have a unique idea or see an opportunity for innovation,{" "}
+            <Link href="/get-involved/pitch-a-project" className="underline">
+              bring it to the group
+            </Link>
+            ! We welcome new project proposals and provide support for those who
+            want to lead initiatives. Your ideas could inspire exciting new
+            directions for our community.
           </p>
         </div>
       </div>
