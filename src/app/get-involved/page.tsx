@@ -5,6 +5,7 @@ import SeedlingIcon from "@/icons/logos/seedling";
 import SproutIcon from "@/icons/logos/sprout";
 import TreeIcon from "@/icons/logos/tree";
 import SlackIcon from "@/icons/slack";
+import { GITHUB_LINK, SLACK_LINK } from "@/utils";
 import Link from "next/link";
 
 export default function GetInvolvedPage() {
@@ -46,8 +47,8 @@ export default function GetInvolvedPage() {
         <div>
           <h2 className="font-semibold">Familiarize and learn</h2>
           <p className="mt-2 max-w-2xl text-sm md:text-base">
-            Join our {/*FIXME: Update Slack Link*/}
-            <Link href="https://slack.com" className="inline underline">
+            Join our
+            <Link href={SLACK_LINK} className="inline underline">
               <SlackIcon className="mx-0.5 inline size-4" />
               Slack
             </Link>{" "}
@@ -58,10 +59,7 @@ export default function GetInvolvedPage() {
             </Link>
             , which fosters a respectful and collaborative environment. You can
             also explore our projects on{" "}
-            <Link
-              href="https://github.com/MNCivicTech"
-              className="inline underline"
-            >
+            <Link href={GITHUB_LINK} className="inline underline">
               <GithubIcon className="mx-0.5 inline size-4" />
               GitHub
             </Link>{" "}

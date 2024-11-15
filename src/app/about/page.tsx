@@ -1,5 +1,6 @@
 import ContactForm from "@/app/about/ContactForm";
 import SlackIcon from "@/icons/slack";
+import { SLACK_LINK } from "@/utils";
 import Link from "next/link";
 
 const leadershipTeam = [
@@ -83,8 +84,7 @@ export default function AboutPage() {
             </Link>
             {", "}
             or by joining the
-            {/*FIXME: Update Slack Link*/}
-            <Link href="https://slack.com" className="inline underline">
+            <Link href={SLACK_LINK} className="inline underline">
               <SlackIcon className="mr-0.5 ml-1.5 inline size-4" />
               Slack
             </Link>
