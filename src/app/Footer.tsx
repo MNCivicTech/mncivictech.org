@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
 
               <li>
-                {/* FIXME: Update Slack Linkedin Link */}
+                {/* FIXME: Update Linkedin Link */}
                 <Link
                   href="https://linkedin.com"
                   className="flex items-center hover:underline"
