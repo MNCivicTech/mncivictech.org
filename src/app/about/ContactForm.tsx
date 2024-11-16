@@ -121,7 +121,7 @@ export default function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            variant="brown"
+            variant="green"
             className="w-full md:w-36"
           >
             Submit

@@ -1,5 +1,13 @@
 import ContactForm from "@/app/about/ContactForm";
 import SlackIcon from "@/icons/slack";
+import { Button } from "@/ui/Button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/ui/Card";
 import { SLACK_LINK } from "@/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -36,7 +44,7 @@ const leadershipTeam = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto bg-brown-50/25 p-6 pt-32 text-brown-900 md:p-36">
+    <div className="mx-auto bg-brown-50/50 p-6 pt-32 text-brown-900 md:p-36">
       <h1 className="mb-8 font-bold text-4xl">About MN Civic Tech</h1>
 
       <section className="mb-12 md:mb-16">
@@ -64,27 +72,35 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-12 md:mb-16">
-        <h2 className="mb-6 font-semibold text-3xl">Code of Conduct</h2>
-        <div className="rounded-lg bg-brown-300 p-6 font-mono">
-          <p className="mb-4">
-            At MN Civic Tech, we are committed to providing a welcoming and
-            inclusive environment for all participants. We expect all members,
-            volunteers, and attendees to treat each other with respect and
-            courtesy, regardless of their background or identity.
-            <br />
-            <br />
-            Our code of conduct prohibits harassment, discrimination, and
-            disruptive behavior in any form. We encourage collaboration, open
-            communication, and feedback to maintain a positive and productive
-            community.
-          </p>
+        <Card className="my-4 flex flex-col border border-brown-900 bg-white md:my-8">
+          <CardHeader>
+            <div className="flex flex-col items-start gap-4 md:mb-4 md:flex-row md:items-center">
+              <CardTitle>Code of Conduct</CardTitle>
+            </div>
 
-          <button type="button">
-            <Link href="/about/code-of-conduct" className="underline">
-              {"Read Full Code of Conduct ->"}
+            <CardDescription>
+              At MN Civic Tech, we are committed to providing a welcoming and
+              inclusive environment for all participants. We expect all members,
+              volunteers, and attendees to treat each other with respect and
+              courtesy, regardless of their background or identity.
+              <br />
+              <br />
+              Our code of conduct prohibits harassment, discrimination, and
+              disruptive behavior in any form. We encourage collaboration, open
+              communication, and feedback to maintain a positive and productive
+              community.
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent className="max-w-lg">
+            {/* Properly space out the footer, could add more details here too */}
+            <Link href="/about/code-of-conduct" className="">
+              <Button variant="green" className="w-full">
+                {"Read Full Code of Conduct ->"}
+              </Button>
             </Link>
-          </button>
-        </div>
+          </CardContent>
+        </Card>
       </section>
 
       <section id="contact" className="mb-12 scroll-mt-32 md:mb-16">
