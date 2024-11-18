@@ -44,3 +44,6 @@ trace/
 
 # vercel
 .vercel
+
+# env
+.env*

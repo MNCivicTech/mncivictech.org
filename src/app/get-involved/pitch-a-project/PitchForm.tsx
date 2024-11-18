@@ -1,5 +1,6 @@
 "use client";
 
+import { projectFormAction } from "@/app/get-involved/pitch-a-project/projectFormAction";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {
@@ -21,9 +22,9 @@ import {
 } from "@/ui/Select";
 import { Textarea } from "@/ui/Textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { z } from "zod";
 
 const requirements = [
   "Open Source",
@@ -49,7 +50,7 @@ const helpNeededOptions = [
   "Industry Knowledge / Expertise",
 ];
 
-const formSchema = z.object({
+export const projectFormSchema = z.object({
   fullName: z.string().min(2, { message: "Required" }),
   email: z.string().email({ message: "Invalid email address" }),
   explanation: z.string().min(1, { message: "Required" }),
@@ -62,8 +63,10 @@ const formSchema = z.object({
 });
 
 export default function PitchForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof projectFormSchema>>({
+    resolver: zodResolver(projectFormSchema),
     defaultValues: {
       fullName: "",
       email: "",
@@ -75,28 +78,21 @@ export default function PitchForm() {
     },
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const onSubmit = form.handleSubmit((data) => {
+    startTransition(async () => {
+      await projectFormAction(data);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-
-    // FIXME: Set up slack hook
-    console.log(values);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Form submitted successfully!");
+      alert(
+        "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
+      );
       form.reset();
-    }, 1000);
-  }
+    });
+  });
 
   return (
     <div className="mx-auto my-8">
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="max-w-2xl space-y-6"
-        >
+        <form onSubmit={onSubmit} className="max-w-2xl space-y-6">
           <FormField
             control={form.control}
             name="fullName"
@@ -292,7 +288,7 @@ export default function PitchForm() {
 
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isPending}
             variant="brown"
             className="w-full md:w-36"
           >

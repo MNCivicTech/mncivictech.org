@@ -1,5 +1,6 @@
 "use client";
 
+import { contactFormAction } from "@/app/about/contactFormAction";
 import { Button } from "@/ui/Button";
 import {
   Form,
@@ -12,11 +13,12 @@ import {
 import { Input } from "@/ui/Input";
 import { Textarea } from "@/ui/Textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 
-const formSchema = z.object({
+import { z } from "zod";
+
+export const contactFormSchema = z.object({
   fullName: z.string().min(2, { message: "Required" }),
   email: z.string().email({ message: "Invalid email address" }),
   message: z.string().min(1, { message: "Invalid message" }),
@@ -24,8 +26,10 @@ const formSchema = z.object({
 });
 
 export default function ContactForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       fullName: "",
       email: "",
@@ -34,28 +38,21 @@ export default function ContactForm() {
     },
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const onSubmit = form.handleSubmit((data) => {
+    startTransition(async () => {
+      await contactFormAction(data);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-
-    // FIXME: Set up slack hook
-    console.log(values);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Form submitted successfully!");
+      alert(
+        "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
+      );
       form.reset();
-    }, 1000);
-  }
+    });
+  });
 
   return (
     <div className="mx-auto my-8">
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="max-w-2xl space-y-6"
-        >
+        <form onSubmit={onSubmit} className="max-w-2xl space-y-6">
           <FormField
             control={form.control}
             name="fullName"
@@ -120,7 +117,7 @@ export default function ContactForm() {
 
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isPending}
             variant="green"
             className="w-full md:w-36"
           >

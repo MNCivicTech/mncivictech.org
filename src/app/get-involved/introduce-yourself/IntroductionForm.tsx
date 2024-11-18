@@ -1,5 +1,6 @@
 "use client";
 
+import { introductionFormAction } from "@/app/get-involved/introduce-yourself/introductionFormAction";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {
@@ -20,9 +21,9 @@ import {
   SelectValue,
 } from "@/ui/Select";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { z } from "zod";
 
 const skills = [
   "JavaScript",
@@ -56,15 +57,15 @@ const disciplines = [
   "Business",
 ];
 
-const whyJoinOptions = ["Projects", "Networking", "Learning", "Social"];
+const interestOptions = ["Projects", "Networking", "Learning", "Social"];
 
-const formSchema = z.object({
+export const introductionFormSchema = z.object({
   fullName: z.string().min(2, { message: "Required" }),
   email: z.string().email({ message: "Invalid email address" }),
   skills: z.array(z.string()).optional(),
   linkedin: z.string().optional(),
   github: z.string().optional(),
-  whyJoin: z.string().optional(),
+  interest: z.string().optional(),
   currentCompany: z.string().optional(),
   currentRole: z.string().optional(),
   disciplines: z.array(z.string()).optional(),
@@ -72,15 +73,17 @@ const formSchema = z.object({
 });
 
 export default function IntroductionForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof introductionFormSchema>>({
+    resolver: zodResolver(introductionFormSchema),
     defaultValues: {
       fullName: "",
       email: "",
       skills: [],
       linkedin: "",
       github: "",
-      whyJoin: "",
+      interest: "",
       currentCompany: "",
       currentRole: "",
       disciplines: [],
@@ -88,24 +91,20 @@ export default function IntroductionForm() {
     },
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const onSubmit = form.handleSubmit((data) => {
+    startTransition(async () => {
+      await introductionFormAction(data);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-
-    // FIXME: Set up slack hook
-    console.log(values);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Form submitted successfully!");
+      alert(
+        "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
+      );
       form.reset();
-    }, 1000);
-  }
+    });
+  });
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={onSubmit} className="space-y-6">
         <FormField
           control={form.control}
           name="fullName"
@@ -219,7 +218,7 @@ export default function IntroductionForm() {
 
         <FormField
           control={form.control}
-          name="whyJoin"
+          name="interest"
           render={({ field }) => (
             <FormItem>
               <FormLabel>What are you most interested in? (Optional)</FormLabel>
@@ -230,7 +229,7 @@ export default function IntroductionForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {whyJoinOptions.map((option) => (
+                  {interestOptions.map((option) => (
                     <SelectItem key={option} value={option}>
                       {option}
                     </SelectItem>
@@ -335,11 +334,7 @@ export default function IntroductionForm() {
         {/*  )}*/}
         {/*/>*/}
 
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full md:w-36"
-        >
+        <Button type="submit" disabled={isPending} className="w-full md:w-36">
           Submit
         </Button>
       </form>
