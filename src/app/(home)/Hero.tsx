@@ -11,7 +11,7 @@ export default function Hero() {
 
         <p className="mx-auto mb-8 max-w-2xl md:text-xl lg:mx-0">
           At MN Civic Tech, we connect technologists, public servants, and
-          community advocates to improve minnesota’s civic tech by building
+          community advocates to grow minnesota’s civic tech by building
           together.
         </p>
 
