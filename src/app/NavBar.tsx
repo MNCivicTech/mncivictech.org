@@ -6,6 +6,14 @@ import MenuIcon from "@/icons/menu";
 import Link from "next/link";
 import { type ReactNode, useState } from "react";
 
+const routes = [
+  { href: "/get-involved", name: "Get Involved" },
+  { href: "/projects", name: "Projects" },
+  { href: "/blog", name: "Blog" },
+  { href: "/donate", name: "Donate" },
+  { href: "/about", name: "About" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,11 +60,11 @@ export default function Navbar() {
 
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <NavLink href="/get-involved">Get Involved</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/blog">Blog</NavLink>
-                <NavLink href="/donate">Donate</NavLink>
-                <NavLink href="/about">About</NavLink>
+                {routes.map(({ href, name }) => (
+                  <NavLink key={href} href={href}>
+                    {name}
+                  </NavLink>
+                ))}
               </div>
             </div>
 
@@ -80,11 +88,11 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-              <MobileNavLink href="/get-involved">Get Involved</MobileNavLink>
-              <MobileNavLink href="/projects">Projects</MobileNavLink>
-              <MobileNavLink href="/blog">Blog</MobileNavLink>
-              <MobileNavLink href="/donate">Donate</MobileNavLink>
-              <MobileNavLink href="/about">About</MobileNavLink>
+              {routes.map(({ href, name }) => (
+                <MobileNavLink key={href} href={href}>
+                  {name}
+                </MobileNavLink>
+              ))}
             </div>
           </div>
         )}
