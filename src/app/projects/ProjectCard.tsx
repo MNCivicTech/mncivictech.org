@@ -1,4 +1,3 @@
-import type { Project } from "@/app/projects/page";
 import GithubIcon from "@/icons/github";
 import LinkIcon from "@/icons/link";
 import SlackIcon from "@/icons/slack";
@@ -12,9 +11,20 @@ import {
   CardTitle,
 } from "@/ui/Card";
 import Link from "next/link";
+import type { Project } from "./projects";
 
-function ProjectLogo({ title, color }: { title: string; color: string }) {
-  const initials = title
+function ProjectLogo({ project }: { project: Project }) {
+  if (project.logo != null) {
+    return (
+      <img
+        src={project.logo}
+        alt={`${project.title} logo`}
+        className="flex size-12 min-w-12 rounded-lg object-cover md:size-16 md:min-w-16"
+      />
+    );
+  }
+
+  const initials = project.title
     .split(" ")
     .map((word) => word[0])
     .join("")
@@ -23,7 +33,7 @@ function ProjectLogo({ title, color }: { title: string; color: string }) {
 
   return (
     <div
-      className={`flex size-12 min-w-12 items-center justify-center rounded-lg font-bold text-white text-xl md:size-16 md:min-w-16 ${color}`}
+      className={`flex size-12 min-w-12 items-center justify-center rounded-lg font-bold text-white text-xl md:size-16 md:min-w-16 ${project?.color ?? "bg-gradient-to-br from-purple-500 to-blue-500"}`}
     >
       {initials}
     </div>
@@ -38,16 +48,15 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       <CardHeader>
         <div className="flex flex-col items-start gap-4 md:mb-4 md:flex-row md:items-center">
-          <ProjectLogo title={project.title} color={project.color} />
+          <ProjectLogo project={project} />
           <CardTitle>{project.title}</CardTitle>
         </div>
 
         <CardDescription>{project.description}</CardDescription>
       </CardHeader>
 
-      <CardContent className="flex-grow">
-        {/* Properly space out the footer, could add more details here too */}
-      </CardContent>
+      {/* Properly space out the footer, could add more details here too */}
+      <CardContent className="flex-grow" />
 
       <CardFooter className="flex flex-col items-end space-y-2 pt-0">
         <Link href={project.slack} className="w-full">

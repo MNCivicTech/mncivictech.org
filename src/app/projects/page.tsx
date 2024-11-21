@@ -1,4 +1,5 @@
 import ProjectCard from "@/app/projects/ProjectCard";
+import { currentProjects, previousProjects } from "@/app/projects/projects";
 import { Button } from "@/ui/Button";
 import {
   Card,
@@ -9,15 +10,6 @@ import {
 } from "@/ui/Card";
 import type { Metadata } from "next";
 import Link from "next/link";
-
-export interface Project {
-  title: string;
-  description: string;
-  color: string;
-  slack: string;
-  github?: string;
-  link?: string;
-}
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -34,29 +26,6 @@ export const metadata: Metadata = {
   },
 };
 
-const currentProjects: Project[] = [
-  // FIXME: Add projects here
-  // {
-  //   title: "Open Data Portal",
-  //   description:
-  //     "A centralized platform for accessing and visualizing public data from various Minnesota government agencies.",
-  //   color: "bg-gradient-to-br from-purple-500 to-blue-500",
-  //   slack: "https://mncivictech.slack.com/archives/open-data-portal",
-  //   github: "https://github.com/mncivictech/open-data-portal",
-  //   link: "https://opendata.minnesota.gov",
-  // },
-  // {
-  //   title: "Community Resource Finder",
-  //   description:
-  //     "An app to help residents find and access local community resources such as food banks, health clinics, and job training programs.",
-  //   slack: "https://mncivictech.slack.com/archives/resource-finder",
-  //   github: "https://github.com/mncivictech/community-resource-finder",
-  //   color: "bg-gradient-to-br from-blue-400 to-green-400",
-  // },
-];
-
-const previousProjects: Project[] = [];
-
 export default function ProjectsPage() {
   return (
     <main className="flex min-h-screen flex-col bg-purple-50/50 p-6 pt-32 md:p-12 md:pt-32">
@@ -70,7 +39,7 @@ export default function ProjectsPage() {
       </p>
 
       <h2 className="md:mb-4">Active Projects</h2>
-      {previousProjects.length < 1 ? (
+      {currentProjects.length < 1 ? (
         <p className="mb-6 max-w-3xl md:mb-12 md:text-lg">
           Nothing in the works yet, stay tuned!
         </p>
