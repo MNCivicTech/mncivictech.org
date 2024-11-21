@@ -28,7 +28,7 @@ export default function GetInvolvedPage() {
   return (
     <div className="mx-auto bg-blue-50/5 p-6 pt-32 text-brown-900 md:p-36">
       <h1 className="mb-4 font-bold">Get Involved</h1>
-      <p className="mb-12">
+      <p className="mb-12 md:text-lg">
         Get involved with to connect, collaborate, and create meaningful impact.
         Regardless of why you are here, there’s a place for you to make a
         difference alongside others who share your passion.

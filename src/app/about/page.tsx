@@ -48,7 +48,7 @@ export default function AboutPage() {
       <h1 className="mb-8 font-bold text-4xl">About MN Civic Tech</h1>
 
       <section className="mb-12 md:mb-16">
-        <p className="text-brown-900">
+        <p className="text-brown-900 md:text-lg">
           MN Civic Tech is a volunteer-driven organization dedicated to building
           technology for the public good in Minnesota. We bring together
           technologists, public servants, and community advocates to collaborate
