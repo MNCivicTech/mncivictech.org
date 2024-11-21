@@ -78,7 +78,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [ build, lint, test ]
-    if: ${{ 'false' == 'true' }} # FIXME: Uncomment when ready to deploy
     environment:
       name: production
       url: ${{ steps.vercel.outputs.production_url }}
