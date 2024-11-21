@@ -107,15 +107,16 @@ export default function AboutPage() {
         <h2 className="mb-6 font-semibold text-3xl">Contact</h2>
         <div>
           <p className="mb-4 text-gray-700">
-            Get in contact with us via this form, emailing us at{" "}
-            <Link
-              href="mailto:hello@mncivictech.org"
-              className="italic underline"
-            >
-              hello@mncivictech.org
-            </Link>
-            {", "}
-            or by joining the
+            Get in contact with us via this form
+            {/*FIXME: Add back email address when active*/}
+            {/*, emailing us at{" "}*/}
+            {/*<Link*/}
+            {/*  href="mailto:hello@mncivictech.org"*/}
+            {/*  className="italic underline"*/}
+            {/*>*/}
+            {/*  hello@mncivictech.org*/}
+            {/*</Link>*/}
+            {/*{", "}*/} or by joining the
             <Link href={SLACK_LINK} className="inline underline">
               <SlackIcon className="mr-0.5 ml-1.5 inline size-4" />
               Slack
