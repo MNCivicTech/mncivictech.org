@@ -29,22 +29,26 @@ export default function MeetingPage() {
         <br />
         <br />
         {/*TODO: Add Countdown*/}
-        <span className="font-bold text-lg">
-          We meeting every month, on the first Wednesday of the month at 7pm CST
-        </span>
+        {/*<span className="font-bold text-lg">*/}
+        {/*  We meet every month, on the first Wednesday of the month at 7pm CST*/}
+        {/*</span>*/}
       </p>
 
       {/*FIXME: Fix Meeting Link*/}
-      <div className="flex flex-col gap-4 md:flex-row">
-        <Link href="/" className="">
-          <Button variant="blue" className="w-full">
-            Zoom Meeting
-          </Button>
-        </Link>
+      <p>
+        We are still in the early planning stages, so more on this to come, stay
+        tuned!
+      </p>
+      {/*<div className="flex flex-col gap-4 md:flex-row">*/}
+      {/*  <Link href="/" className="">*/}
+      {/*    <Button variant="blue" className="w-full">*/}
+      {/*      Zoom Meeting*/}
+      {/*    </Button>*/}
+      {/*  </Link>*/}
 
-        {/*FIXME: Add Calendar Invite download or link*/}
-        <Button variant="outline">Calendar Invite</Button>
-      </div>
+      {/*  /!*FIXME: Add Calendar Invite download or link*!/*/}
+      {/*  <Button variant="outline">Calendar Invite</Button>*/}
+      {/*</div>*/}
     </div>
   );
 }
