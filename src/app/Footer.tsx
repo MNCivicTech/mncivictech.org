@@ -2,7 +2,7 @@ import GithubIcon from "@/icons/github";
 import LinkedinIcon from "@/icons/linkedin";
 import LogoIcon from "@/icons/logos/logo";
 import SlackIcon from "@/icons/slack";
-import { GITHUB_LINK, SLACK_LINK } from "@/utils";
+import { GITHUB_LINK, LINKEDIN_LINK, SLACK_LINK } from "@/utils";
 import Link from "next/link";
 
 export default function Footer() {
@@ -76,9 +76,8 @@ export default function Footer() {
               </li>
 
               <li>
-                {/* FIXME: Update Linkedin Link */}
                 <Link
-                  href="https://linkedin.com"
+                  href={LINKEDIN_LINK}
                   className="flex items-center hover:underline"
                 >
                   <div>
