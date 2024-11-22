@@ -36,10 +36,10 @@ const leadershipTeam = [
     name: "Davis Jaeger",
     role: "Secretary",
   },
-  {
-    name: "Ben Rickers",
-    role: "Treasurer",
-  },
+  // {
+  //   name: "Ben Rickers",
+  //   role: "Treasurer",
+  // },
 ];
 
 export default function AboutPage() {
