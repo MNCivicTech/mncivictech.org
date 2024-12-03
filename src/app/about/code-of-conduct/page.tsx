@@ -18,17 +18,22 @@ export const metadata: Metadata = {
 
 export default function CodeOfConductPage() {
   return (
-    <main className="mx-auto bg-brown-50/0 p-6 pt-32 text-brown-900 text-brown-900 md:p-36 md:text-lg">
+    <main className="mx-auto bg-brown-50/0 p-6 pt-32 text-brown-900 md:p-36 md:text-lg">
       <h1 className="mb-8 font-bold text-4xl">Code of Conduct</h1>
 
       <section className="max-w-5xl">
-        <h3 className="mt-6">Space for Everyone</h3>
+        <h3 className="mt-6">Software for All, Software by All.</h3>
 
         {/*<h3 className="mt-6">*/}
-        {/*  Space for{" "}*/}
+        {/*  Software for{" "}*/}
         {/*  <span className="relative inline-block">*/}
-        {/*    <span className="relative z-10">Everyone</span>*/}
+        {/*    <span className="relative z-10">All</span>*/}
         {/*    <span className="absolute bottom-0 left-0 w-full h-3 bg-green-300 -rotate-2 rounded-sm" />*/}
+        {/*  </span>*/}
+        {/*  , Software by{" "}*/}
+        {/*  <span className="relative inline-block">*/}
+        {/*    <span className="relative z-10">All</span>*/}
+        {/*    <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-300 -rotate-2 rounded-sm" />*/}
         {/*  </span>*/}
         {/*</h3>*/}
 
@@ -119,8 +124,14 @@ export default function CodeOfConductPage() {
           </li>
         </ol>
         <p>
-          This Code of Conduct is based on the Code of Conduct from Code for
-          America, created by the Ada Initiative and other volunteers.
+          This Code of Conduct is based on the{" "}
+          <a
+            href="https://codeforamerica.org/code-of-conduct/"
+            className="underline"
+          >
+            Code of Conduct
+          </a>{" "}
+          from Code for America.
         </p>
       </section>
 
