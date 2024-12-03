@@ -1,8 +1,8 @@
-import IntroductionForm from "@/app/get-involved/introduce-yourself/IntroductionForm";
+import NewsletterForm from "@/app/get-involved/newsletter/NewsletterForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Introduce Yourself",
+  title: "Newsletter",
   description:
     "Introduce yourself to MN Civic Tech! Share your skills, interests, and background to connect with projects and people who share your passion for civic tech.",
 
@@ -12,16 +12,21 @@ export const metadata: Metadata = {
       "Introduce yourself to MN Civic Tech! Share your skills, interests, and background to connect with projects and people who share your passion for civic tech.",
   },
   alternates: {
-    canonical: "/get-involved/introduce-yourself",
+    canonical: "/get-involved/newsletter",
   },
 };
 
-export default function IntroduceYourselfPage() {
+export default function NewsletterPage() {
   return (
-    <div className="mx-auto bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
-      <h1 className="mb-6 font-bold text-2xl">Introduce Yourself</h1>
+    <div className="mx-auto min-h-screen bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
+      <h1 className="mb-6 font-bold text-2xl">Newsletter</h1>
 
-      <IntroductionForm />
+      <p className="mb-8">
+        Our Newsletter allows you to stay informed with upcoming events, new
+        projects, and other initiatives we have going on.
+      </p>
+
+      <NewsletterForm />
     </div>
   );
 }

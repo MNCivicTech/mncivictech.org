@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function MeetingPage() {
   return (
-    <div className="mx-auto min-h-screen bg-blue-50/5 p-6 pt-32 text-brown-900 md:p-36">
+    <div className="mx-auto min-h-screen bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
       <h1 className="mb-4 font-bold">Monthly Meeting</h1>
       <p className="mb-12">
         Join our monthly meeting to stay connected, share progress, and discuss

@@ -86,7 +86,7 @@ export default function WhatsGoingOn() {
           <CardContent className="max-w-lg flex-grow" />
 
           <CardFooter>
-            <Link href="/about#contact" className="w-full">
+            <Link href="/get-involved/newsletter" className="w-full">
               <Button variant="blue" className="w-full">
                 {"Newsletter ->"}
               </Button>

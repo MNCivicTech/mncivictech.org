@@ -104,7 +104,7 @@ export default function IntroductionForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="space-y-6">
+      <form onSubmit={onSubmit} className="max-w-3xl space-y-6">
         <FormField
           control={form.control}
           name="fullName"

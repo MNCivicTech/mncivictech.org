@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function PitchAProjectPage() {
   return (
-    <div className="mx-auto bg-blue-50/5 p-6 pt-32 text-brown-900 md:p-36">
+    <div className="mx-auto bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
       <h1 className="mb-6 font-bold text-2xl">Pitch a Project</h1>
 
       <p>

@@ -92,7 +92,7 @@ export default function PitchForm() {
   return (
     <div className="mx-auto my-8">
       <Form {...form}>
-        <form onSubmit={onSubmit} className="max-w-2xl space-y-6">
+        <form onSubmit={onSubmit} className="max-w-3xl space-y-6">
           <FormField
             control={form.control}
             name="fullName"
@@ -289,7 +289,7 @@ export default function PitchForm() {
           <Button
             type="submit"
             disabled={isPending}
-            variant="brown"
+            variant="green"
             className="w-full md:w-36"
           >
             Submit

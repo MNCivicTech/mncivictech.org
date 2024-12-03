@@ -122,6 +122,15 @@ export default function Footer() {
                   Pitch a Project
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  href="/get-involved/newsletter"
+                  className="hover:underline"
+                >
+                  Newsletter
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
