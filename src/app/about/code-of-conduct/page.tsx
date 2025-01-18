@@ -61,8 +61,8 @@ export default function CodeOfConductPage() {
           These aren’t just words—they’re commitments we act on. Below, you’ll
           find the full Code of Conduct, including our harassment policy and how
           to report concerns. For questions, contact us at{" "}
-          <a href="mailto:hello@mncivictech.org" className="underline">
-            hello@mncivictech.org
+          <a href="mailto:hi@mncivictech.org" className="underline">
+            hi@mncivictech.org
           </a>{" "}
           or reach out on Slack.
         </p>
@@ -179,8 +179,8 @@ export default function CodeOfConductPage() {
           If you are being harassed, notice that someone else is being harassed,
           or have any other concerns, please contact one of the Organizers,
           Executives, or Executive Director at{" "}
-          <a href="mailto:hello@mncivictech.org" className="underline">
-            hello@mncivictech.org
+          <a href="mailto:hi@mncivictech.org" className="underline">
+            hi@mncivictech.org
           </a>{" "}
           or on Slack.
         </p>
