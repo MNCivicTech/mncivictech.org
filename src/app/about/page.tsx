@@ -53,9 +53,18 @@ export default function AboutPage() {
           technology for the public good in Minnesota. We bring together
           technologists, public servants, and community advocates to collaborate
           on projects that address local challenges and improve the lives of
-          Minnesotans. Our mission is to foster innovation, promote civic
-          engagement, and create a more connected and efficient state through
-          the power of technology.
+          Minnesotans. MN Civic Tech initiatives focus on providing tools,
+          services, or platforms that directly benefit the community, such as
+          fostering civic engagement, improving public services, or addressing
+          local issues.
+          <br />
+          <br />
+          Our mission goes beyond creating software—we build community. By
+          fostering collaboration and innovation, we focus on building
+          technology that directly benefits Minnesotans. Together, we’re
+          cultivating a more connected, empathetic, and efficient
+          Minnesota—where everyone has the opportunity to contribute to
+          technology that improves the very place we live.
         </p>
       </section>
 
@@ -108,7 +117,7 @@ export default function AboutPage() {
         <div>
           <p className="mb-4 text-gray-700">
             Get in contact with us via this form, emailing us at{" "}
-            <Link href="mailto:hi@mncivictech.org" className="italic underline">
+            <Link href="mailto:hi@mncivictech.org" className="underline">
               hi@mncivictech.org
             </Link>
             {", "}
