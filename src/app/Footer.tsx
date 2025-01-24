@@ -123,14 +123,15 @@ export default function Footer() {
                 </Link>
               </li>
 
-              <li>
-                <Link
-                  href="/get-involved/newsletter"
-                  className="hover:underline"
-                >
-                  Newsletter
-                </Link>
-              </li>
+              {/*FIXME: Add newsletter link whenever we might have one*/}
+              {/*<li>*/}
+              {/*  <Link*/}
+              {/*    href="/get-involved/newsletter"*/}
+              {/*    className="hover:underline"*/}
+              {/*  >*/}
+              {/*    Newsletter*/}
+              {/*  </Link>*/}
+              {/*</li>*/}
             </ul>
           </div>
         </div>

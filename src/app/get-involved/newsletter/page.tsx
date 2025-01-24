@@ -1,5 +1,6 @@
-import NewsletterForm from "@/app/get-involved/newsletter/NewsletterForm";
+// import NewsletterForm from "@/app/get-involved/newsletter/NewsletterForm";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Newsletter",
@@ -17,16 +18,19 @@ export const metadata: Metadata = {
 };
 
 export default function NewsletterPage() {
-  return (
-    <div className="mx-auto min-h-screen bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
-      <h1 className="mb-6 font-bold text-2xl">Newsletter</h1>
+  // FIXME: figure out what a newsletter might look like
+  notFound();
 
-      <p className="mb-8">
-        Our Newsletter allows you to stay informed with upcoming events, new
-        projects, and other initiatives we have going on.
-      </p>
-
-      <NewsletterForm />
-    </div>
-  );
+  // return (
+  //   <div className="mx-auto min-h-screen bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
+  //     <h1 className="mb-6 font-bold text-2xl">Newsletter</h1>
+  //
+  //     <p className="mb-8">
+  //       Our Newsletter allows you to stay informed with upcoming events, new
+  //       projects, and other initiatives we have going on.
+  //     </p>
+  //
+  //     <NewsletterForm />
+  //   </div>
+  // );
 }
