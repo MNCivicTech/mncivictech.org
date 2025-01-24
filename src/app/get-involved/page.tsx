@@ -93,7 +93,7 @@ export default function GetInvolvedPage() {
         <div>
           <h2 className="font-semibold">Come hang out</h2>
           <p className="mt-2 max-w-2xl text-sm md:text-base">
-            Every other week, we host a{" "}
+            Every month we host a{" "}
             <Link href="/get-involved/meeting" className="underline">
               remote meeting
             </Link>{" "}
