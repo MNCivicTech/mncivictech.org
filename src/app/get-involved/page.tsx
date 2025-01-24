@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function GetInvolvedPage() {
   return (
     <div className="mx-auto bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
-      <h1 className="mb-4 font-bold">Get Involved</h1>
+      <h1 className="mb-4 font-bold">Familiarize and Learn</h1>
       <p className="mb-12 md:text-lg">
         Get involved with to connect, collaborate, and create meaningful impact.
         Regardless of why you are here, there’s a place for you to make a
@@ -41,27 +41,7 @@ export default function GetInvolvedPage() {
         </div>
 
         <div>
-          <h2 className="font-semibold">Introduce yourself</h2>
-          <p className="mt-2 max-w-2xl text-sm md:text-base">
-            Fill out a{" "}
-            <Link href="/get-involved/introduce-yourself" className="underline">
-              short form
-            </Link>{" "}
-            to introduce yourself and share a little about your background,
-            interests, and skills. This helps us get to know you better and
-            connect you with projects or people aligned with your goals.
-          </p>
-        </div>
-      </div>
-
-      {/* Step 2 */}
-      <div className="mb-12 flex items-start md:mb-16">
-        <div>
-          <SeedlingIcon className="mr-2 size-8 md:mr-12 md:size-16" />
-        </div>
-
-        <div>
-          <h2 className="font-semibold">Familiarize and learn</h2>
+          <h2 className="font-semibold">Get Involved</h2>
           <p className="mt-2 max-w-2xl text-sm md:text-base">
             Join our
             <Link href={SLACK_LINK} className="inline underline">
@@ -80,6 +60,26 @@ export default function GetInvolvedPage() {
               GitHub
             </Link>{" "}
             to get a feel for our work and contributions.
+          </p>
+        </div>
+      </div>
+
+      {/* Step 2 */}
+      <div className="mb-12 flex items-start md:mb-16">
+        <div>
+          <SeedlingIcon className="mr-2 size-8 md:mr-12 md:size-16" />
+        </div>
+
+        <div>
+          <h2 className="font-semibold">Introduce yourself</h2>
+          <p className="mt-2 max-w-2xl text-sm md:text-base">
+            Fill out a{" "}
+            <Link href="/get-involved/introduce-yourself" className="underline">
+              short form
+            </Link>{" "}
+            to introduce yourself and share a little about your background,
+            interests, and skills. This helps us get to know you better and
+            connect you with projects or people aligned with your goals.
           </p>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function GetInvolvedPage() {
               list of projects
             </Link>
             , clone a repository, explore open issues, and start tackling
-            challenges. Collaborate with your project team, solve problems
+            challenges. Collaborate with a project team, solve problems
             together, and make meaningful contributions to impactful projects
             whenever you have time!
           </p>
