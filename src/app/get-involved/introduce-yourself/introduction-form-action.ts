@@ -1,6 +1,6 @@
 "use server";
 
-import type { introductionFormSchema } from "@/app/get-involved/introduce-yourself/IntroductionForm";
+import type { introductionFormSchema } from "@/app/get-involved/introduce-yourself/introduction-form";
 import { MessageType, sendSlackMessage } from "@/utils/slack";
 import type { z } from "zod";
 

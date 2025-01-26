@@ -1,6 +1,6 @@
 "use client";
 
-import { introductionFormAction } from "@/app/get-involved/introduce-yourself/introductionFormAction";
+import { introductionFormAction } from "@/app/get-involved/introduce-yourself/introduction-form-action";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {

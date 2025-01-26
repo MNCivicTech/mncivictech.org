@@ -1,4 +1,4 @@
-import IntroductionForm from "@/app/get-involved/introduce-yourself/IntroductionForm";
+import IntroductionForm from "@/app/get-involved/introduce-yourself/introduction-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

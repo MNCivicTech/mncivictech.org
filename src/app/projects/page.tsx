@@ -1,4 +1,4 @@
-import ProjectCard from "@/app/projects/ProjectCard";
+import ProjectCard from "@/app/projects/project-card";
 import { currentProjects, previousProjects } from "@/app/projects/projects";
 import { Button } from "@/ui/Button";
 import {

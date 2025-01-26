@@ -1,5 +1,5 @@
-import Hero from "@/app/(home)/Hero";
-import WhatsGoingOn from "@/app/(home)/WhatsGoingOn";
+import Hero from "@/app/(home)/hero";
+import WhatsGoingOn from "@/app/(home)/whats-going-on";
 
 export default function HomePage() {
   return (

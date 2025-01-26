@@ -1,4 +1,4 @@
-import ContactForm from "@/app/about/ContactForm";
+import ContactForm from "@/app/about/contact-form";
 import SlackIcon from "@/icons/slack";
 import { Button } from "@/ui/Button";
 import {

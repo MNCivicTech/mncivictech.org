@@ -1,6 +1,6 @@
 "use server";
 
-import type { newsletterFormSchema } from "@/app/get-involved/newsletter/NewsletterForm";
+import type { newsletterFormSchema } from "@/app/get-involved/newsletter/newsletter-form";
 import type { z } from "zod";
 
 export async function newsletterFormAction(

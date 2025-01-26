@@ -1,4 +1,4 @@
-import PitchForm from "@/app/get-involved/pitch-a-project/PitchForm";
+import PitchForm from "@/app/get-involved/pitch-a-project/pitch-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

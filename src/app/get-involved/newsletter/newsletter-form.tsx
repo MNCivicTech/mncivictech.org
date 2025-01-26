@@ -1,6 +1,6 @@
 "use client";
 
-import { newsletterFormAction } from "@/app/get-involved/newsletter/newsletterFormAction";
+import { newsletterFormAction } from "@/app/get-involved/newsletter/newsletter-form-action";
 import { Button } from "@/ui/Button";
 import {
   Form,

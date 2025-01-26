@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 
-import Footer from "@/app/Footer";
-import NavBar from "@/app/NavBar";
 import AnnouncementBanner from "@/app/announcement-banner";
+import Footer from "@/app/footer";
+import NavBar from "@/app/navbar";
 
 import "./tailwind.css";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { contactFormAction } from "@/app/about/contactFormAction";
+import { contactFormAction } from "@/app/about/contact-form-action";
 import { Button } from "@/ui/Button";
 import {
   Form,

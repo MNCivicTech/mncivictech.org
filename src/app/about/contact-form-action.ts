@@ -1,6 +1,6 @@
 "use server";
 
-import type { contactFormSchema } from "@/app/about/ContactForm";
+import type { contactFormSchema } from "@/app/about/contact-form";
 import { MessageType, sendSlackMessage } from "@/utils/slack";
 import type { z } from "zod";
 

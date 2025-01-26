@@ -1,6 +1,6 @@
 "use client";
 
-import { projectFormAction } from "@/app/get-involved/pitch-a-project/projectFormAction";
+import { projectFormAction } from "@/app/get-involved/pitch-a-project/project-form-action";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {
