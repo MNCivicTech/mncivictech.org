@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     title: "Introduce Yourself",
     description:
       "Introduce yourself to MN Civic Tech! Share your skills, interests, and background to connect with projects and people who share your passion for civic tech.",
+    url: "https://www.mncivictech.org/get-involved/newsletter",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/get-involved/newsletter",

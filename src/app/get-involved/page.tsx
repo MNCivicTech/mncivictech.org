@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     title: "Get Involved",
     description:
       "Join MN Civic Tech to connect, collaborate, and make an impact. Introduce yourself, join a project, attend meetings, or pitch your own idea for community tech!",
+    url: "https://www.mncivictech.org/get-involved",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/get-involved",

@@ -1,4 +1,3 @@
-import LogoIcon from "@/icons/logos/logo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,6 +9,8 @@ export const metadata: Metadata = {
     title: "Code of Conduct",
     description:
       "MN Civic Tech’s Code of Conduct ensures a welcoming, inclusive environment for all. Read our commitment to respect, diversity, and collaboration.",
+    url: "https://www.mncivictech.org/about/code-of-conduct",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/about/code-of-conduct",

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     title: "Donate",
     description:
       "Support MN Civic Tech’s mission with your donation. Help fund open-source, volunteer-driven projects that improve communities and make a lasting impact in Minnesota.",
+    url: "https://www.mncivictech.org/donate",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/donate",

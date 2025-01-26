@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     title: "About",
     description:
       "Learn about MN Civic Tech, a volunteer nonprofit using technology to solve local challenges in Minnesota. Meet our team, read our code of conduct, and connect!",
+    url: "https://www.mncivictech.org/about",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/about",

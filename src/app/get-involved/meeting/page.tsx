@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     title: "Monthly Meeting",
     description:
       "Join MN Civic Tech’s monthly meetings to connect with team members, discuss projects, and brainstorm ideas. Contribute to civic tech initiatives in Minnesota!",
+    url: "https://www.mncivictech.org/get-involved/meeting",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/get-involved/meeting",

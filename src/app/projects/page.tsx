@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     title: "Projects",
     description:
       "Explore MN Civic Tech’s current projects, where open-source tech initiatives drive positive change in Minnesota. Join us in building a stronger community!",
+    url: "https://www.mncivictech.org/projects",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/projects",

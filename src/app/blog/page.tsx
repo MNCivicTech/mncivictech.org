@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     title: "Blog",
     description:
       "Read the latest from MN Civic Tech’s blog! Explore insights, updates, and stories about civic tech projects and community impact in Minnesota.",
+    url: "https://www.mncivictech.org/blog",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/blog",
