@@ -17,12 +17,7 @@ export default function Hero() {
 
         <div className="flex flex-col justify-between gap-4 sm:justify-start md:flex-row md:gap-8">
           <Link href="/get-involved">
-            <Button
-              type="button"
-              className="bg-blue-900 text-white hover:bg-blue-900/90"
-            >
-              {"Get Involved ->"}
-            </Button>
+            <Button variant="dark-blue">{"Get Involved ->"}</Button>
           </Link>
 
           <Link href="/about">

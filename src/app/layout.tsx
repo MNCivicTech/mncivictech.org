@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 
 import Footer from "@/app/Footer";
 import NavBar from "@/app/NavBar";
+import AnnouncementBanner from "@/app/announcement-banner";
 
 import "./tailwind.css";
 
@@ -98,6 +99,7 @@ export default function RootLayout({
       className={`${JetBrainsFont.variable} ${GeistSans.variable}`}
     >
       <body>
+        <AnnouncementBanner />
         <NavBar />
         {children}
         <Footer />

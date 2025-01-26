@@ -9,8 +9,6 @@ import { type ReactNode, useState } from "react";
 const routes = [
   { href: "/get-involved", name: "Get Involved" },
   { href: "/projects", name: "Projects" },
-  // { href: "/blog", name: "Blog" },
-  // { href: "/donate", name: "Donate" },
   { href: "/about", name: "About" },
 ];
 
