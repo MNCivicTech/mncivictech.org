@@ -6,10 +6,10 @@ export default function LogoIcon({ ...props }: ComponentProps<"svg">) {
       width="100%"
       viewBox="0 0 537 787"
       fill="none"
+      role="graphics-symbol"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <title>Logo</title>
       <path d="M227.5 425H261V787H186L227.5 425Z" fill="#A69474" />
       <path d="M294.114 425H260.614V787H335.614L294.114 425Z" fill="#A69474" />
       <path

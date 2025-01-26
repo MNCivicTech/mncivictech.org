@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: "MN Civic Tech",
   },
   description:
-    "Connecting technologists, public servants, and community advocates to improve Civic Tech for Minnesota",
+    "Connecting technologists, public servants, & community advocates to improve Minnesota’s civic tech by building together.",
   applicationName: "MN Civic Tech",
   keywords: [
     "minnesota civic tech",
@@ -29,9 +29,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MN Civic Tech",
     description:
-      "Connecting technologists, public servants, and community advocates to improve Civic Tech for Minnesota",
+      "Connecting technologists, public servants, & community advocates to improve Minnesota’s civic tech by building together.",
     type: "website",
     url: "https://www.mncivictech.org",
+    images: ["/og"],
   },
   alternates: {
     canonical: "/",
