@@ -1,4 +1,7 @@
+import SlackIcon from "@/icons/slack";
+import { SLACK_LINK, WEBSITE_LINK } from "@/utils";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Introduction",
@@ -71,10 +74,17 @@ export default function AnnouncementPage() {
           We are a 501(c)(3) non-profit organization, and we rely on the support
           of our community to make all of this possible. If you are interested
           in learning more about us, volunteering, or getting involved, please
-          visit our website at www.mncivictech.org and join our public Slack at
-          slack.mncivictech.org! We are excited to join the Minnesota civic tech
-          community, and we look forward to working with everyone to make a
-          difference.
+          visit our{" "}
+          <Link href={WEBSITE_LINK} className="inline underline">
+            website
+          </Link>{" "}
+          and join our public
+          <Link href={SLACK_LINK} className="inline underline">
+            <SlackIcon className="mx-0.5 ml-1 inline size-4" />
+            Slack
+          </Link>{" "}
+          ! We are excited to join the Minnesota civic tech community, and we
+          look forward to working with everyone to make a difference.
         </p>
       </section>
     </div>
