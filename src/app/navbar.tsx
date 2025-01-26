@@ -20,7 +20,7 @@ export default function Navbar() {
       <Link
         href={href}
         onClick={() => setIsOpen(false)}
-        className="rounded-md px-1 py-2 text-brown-900 text-sm hover:underline lg:px-3"
+        className="rounded-md px-1 py-2 text-blue-900 text-sm hover:underline lg:px-3"
       >
         {children}
       </Link>
@@ -50,7 +50,7 @@ export default function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <LogoIcon className="size-12" />
-                <span className="ml-2 font-bold font-sans text-lg">
+                <span className="ml-2 font-bold font-sans text-blue-900 text-lg">
                   MN Civic Tech
                 </span>
               </Link>

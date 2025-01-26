@@ -47,7 +47,9 @@ const leadershipTeam = [
 export default function AboutPage() {
   return (
     <div className="mx-auto bg-brown-50/50 p-6 pt-32 text-brown-900 md:p-36">
-      <h1 className="mb-8 font-bold text-4xl">About MN Civic Tech</h1>
+      <h1 className="mb-8 font-bold text-3xl md:text-4xl">
+        About MN Civic Tech
+      </h1>
 
       <section className="mb-12 md:mb-16">
         <p className="text-brown-900 md:text-lg">

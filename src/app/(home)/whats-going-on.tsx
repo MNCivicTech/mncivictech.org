@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function WhatsGoingOn() {
   return (
-    <div className="mx-auto bg-green-100 pb-8 text-green-900 md:px-18 lg:px-36">
+    <div className="mx-auto bg-green-50 pb-8 text-green-900 md:px-18 lg:px-36">
       <div className="flex justify-center">
         <h2 className="mb-4 text-3xl text-green-900 md:text-4xl">
           What's Going On

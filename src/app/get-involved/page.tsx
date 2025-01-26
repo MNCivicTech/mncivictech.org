@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function GetInvolvedPage() {
   return (
     <div className="mx-auto bg-blue-50/5 p-6 pt-32 text-blue-900 md:p-36">
-      <h1 className="mb-4 font-bold">Familiarize and Learn</h1>
+      <h1 className="mb-4 font-bold text-3xl md:text-4xl">Get Involved</h1>
       <p className="mb-12 md:text-lg">
         Get involved with to connect, collaborate, and create meaningful impact.
         Regardless of why you are here, there’s a place for you to make a
@@ -43,7 +43,7 @@ export default function GetInvolvedPage() {
         </div>
 
         <div>
-          <h2 className="font-semibold">Get Involved</h2>
+          <h2 className="font-semibold">Familiarize and Learn</h2>
           <p className="mt-2 max-w-2xl text-sm md:text-base">
             Join our
             <Link href={SLACK_LINK} className="inline underline">

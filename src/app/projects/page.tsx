@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main className="flex min-h-screen flex-col bg-purple-50/50 p-6 pt-32 md:p-12 md:pt-32">
-      <h1 className="md:mb-8">Our Projects</h1>
+      <h1 className="text-3xl md:mb-8 md:text-4xl">Our Projects</h1>
 
       <p className="mb-6 max-w-3xl md:mb-12 md:text-lg">
         At MN Civic Tech, we're dedicated to creating open-source,
