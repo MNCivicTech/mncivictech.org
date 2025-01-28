@@ -2,6 +2,7 @@
 
 import CloseIcon from "@/icons/close";
 import { Button } from "@/ui/Button";
+import { getCookie, setCookie } from "@/utils/cookies";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -9,12 +10,19 @@ export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 1000);
+    if (!getCookie("announcement-modal-closed")) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 1000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setCookie("announcement-modal-closed", "true", 48);
+  };
 
   if (!isOpen) return null;
 
@@ -25,7 +33,7 @@ export default function AnnouncementModal() {
           <h3 className="font-semibold">Introducing MN Civic Tech 🌳</h3>
           <button
             type="button"
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
             className="transition-colors"
             aria-label="Close modal"
           >
@@ -47,7 +55,7 @@ export default function AnnouncementModal() {
           <Link
             href="/about/announcement"
             className="w-full"
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
           >
             <Button variant="dark-blue" className="w-full">
               {"Read Our Announcement ->"}
