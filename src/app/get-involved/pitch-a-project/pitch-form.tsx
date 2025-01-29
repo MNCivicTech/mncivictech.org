@@ -1,6 +1,7 @@
 "use client";
 
 import { projectFormAction } from "@/app/get-involved/pitch-a-project/project-form-action";
+import useTurnstile from "@/hooks/useTurnstile";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {
@@ -22,7 +23,8 @@ import {
 } from "@/ui/Select";
 import { Textarea } from "@/ui/Textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTransition } from "react";
+import Script from "next/script";
+import { useRef, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -60,9 +62,14 @@ export const projectFormSchema = z.object({
   progress: z.string().min(1, { message: "Required" }),
   helpNeeded: z.array(z.string()).optional(),
   anythingElse: z.string().optional(),
+  turnstileToken: z
+    .string()
+    .min(1, { message: "You must verify you're human" }),
 });
 
 export default function PitchForm() {
+  const ref = useRef<HTMLDivElement>(null);
+
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof projectFormSchema>>({
@@ -75,22 +82,41 @@ export default function PitchForm() {
       progress: "",
       helpNeeded: [],
       anythingElse: "",
+      turnstileToken: "",
     },
   });
 
+  const { buildTurnstile } = useTurnstile(ref, (token: string) =>
+    form.setValue("turnstileToken", token),
+  );
+
   const onSubmit = form.handleSubmit((data) => {
     startTransition(async () => {
-      await projectFormAction(data);
+      try {
+        await projectFormAction(data);
 
-      alert(
-        "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
-      );
-      form.reset();
+        alert(
+          "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
+        );
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        alert(
+          "There was an error submitting your pitch. Please try again later.",
+        );
+      }
     });
   });
 
   return (
     <div className="mx-auto my-8">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+        onReady={buildTurnstile}
+      />
+
       <Form {...form}>
         <form onSubmit={onSubmit} className="max-w-3xl space-y-6">
           <FormField
@@ -280,6 +306,19 @@ export default function PitchForm() {
                 </FormLabel>
                 <FormControl>
                   <Textarea {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="turnstileToken"
+            render={() => (
+              <FormItem>
+                <FormControl>
+                  <div ref={ref} data-sitekey="0x4AAAAAAA6mNfPWlxK11Esg" />
                 </FormControl>
                 <FormMessage />
               </FormItem>

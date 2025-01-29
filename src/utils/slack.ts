@@ -338,6 +338,7 @@ async function sendMessage(
       console.error("Failed to send message:", response.error);
     }
   } catch (error) {
-    console.error("Error sending message:", error);
+    console.error("Error sending Slack message:", error);
+    throw new Error("Error sending Slack message", { cause: error });
   }
 }

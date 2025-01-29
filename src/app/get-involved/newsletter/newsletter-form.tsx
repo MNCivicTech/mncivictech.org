@@ -34,10 +34,15 @@ export default function NewsletterForm() {
 
   const onSubmit = form.handleSubmit((data) => {
     startTransition(async () => {
-      await newsletterFormAction(data);
+      try {
+        await newsletterFormAction(data);
 
-      alert("Thank you for signing up!");
-      form.reset();
+        alert("Thank you for signing up!");
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        alert("There was an error signing up. Please try again later.");
+      }
     });
   });
 

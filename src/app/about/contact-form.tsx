@@ -1,6 +1,7 @@
 "use client";
 
 import { contactFormAction } from "@/app/about/contact-form-action";
+import useTurnstile from "@/hooks/useTurnstile";
 import { Button } from "@/ui/Button";
 import {
   Form,
@@ -13,19 +14,24 @@ import {
 import { Input } from "@/ui/Input";
 import { Textarea } from "@/ui/Textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTransition } from "react";
+import Script from "next/script";
+import { useRef, useTransition } from "react";
 import { useForm } from "react-hook-form";
-
 import { z } from "zod";
 
 export const contactFormSchema = z.object({
   fullName: z.string().min(2, { message: "Required" }),
   email: z.string().email({ message: "Invalid email address" }),
   message: z.string().min(1, { message: "Invalid message" }),
+  turnstileToken: z
+    .string()
+    .min(1, { message: "You must verify you're human" }),
   // newsletter: z.boolean(),
 });
 
 export default function ContactForm() {
+  const ref = useRef<HTMLDivElement>(null);
+
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -34,23 +40,42 @@ export default function ContactForm() {
       fullName: "",
       email: "",
       message: "",
+      turnstileToken: "",
       // newsletter: false,
     },
   });
 
+  const { buildTurnstile } = useTurnstile(ref, (token: string) =>
+    form.setValue("turnstileToken", token),
+  );
+
   const onSubmit = form.handleSubmit((data) => {
     startTransition(async () => {
-      await contactFormAction(data);
+      try {
+        await contactFormAction(data);
 
-      alert(
-        "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
-      );
-      form.reset();
+        alert(
+          "Thank you for reaching out! Your message has been successfully submitted. We will get back to you as soon as possible.",
+        );
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        alert(
+          "There was an error submitting your message. Please try again later.",
+        );
+      }
     });
   });
 
   return (
     <div className="mx-auto my-8">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+        onReady={buildTurnstile}
+      />
+
       <Form {...form}>
         <form onSubmit={onSubmit} className="max-w-2xl space-y-6">
           <FormField
@@ -99,21 +124,18 @@ export default function ContactForm() {
             )}
           />
 
-          {/*<FormField*/}
-          {/*  control={form.control}*/}
-          {/*  name="newsletter"*/}
-          {/*  render={({ field }) => (*/}
-          {/*    <FormItem className="flex flex-row items-center space-x-3 space-y-0">*/}
-          {/*      <FormControl>*/}
-          {/*        <Checkbox*/}
-          {/*          checked={field.value}*/}
-          {/*          onCheckedChange={(checked) => field.onChange(checked)}*/}
-          {/*        />*/}
-          {/*      </FormControl>*/}
-          {/*      <FormLabel>Opt into the newsletter</FormLabel>*/}
-          {/*    </FormItem>*/}
-          {/*  )}*/}
-          {/*/>*/}
+          <FormField
+            control={form.control}
+            name="turnstileToken"
+            render={() => (
+              <FormItem>
+                <FormControl>
+                  <div ref={ref} data-sitekey="0x4AAAAAAA6mNfPWlxK11Esg" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <Button
             type="submit"
