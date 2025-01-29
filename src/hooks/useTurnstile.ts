@@ -1,8 +1,20 @@
 import { type RefObject, useEffect, useState } from "react";
 
-// FIXME: create type for this
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-declare const turnstile: any;
+declare const turnstile: {
+  render: (
+    element: string | HTMLElement,
+    options: {
+      sitekey: string;
+      language: string;
+      execution: "render" | "execute";
+      callback: (token: string) => void;
+      "expired-callback": (ref: RefObject<HTMLDivElement>) => void;
+    },
+  ) => string;
+  remove: (widgetId: string) => void;
+  execute: (element: string | HTMLElement) => void;
+  reset: (element: string | HTMLElement) => void;
+};
 
 export default function useTurnstile(
   ref: RefObject<HTMLDivElement>,
@@ -11,6 +23,10 @@ export default function useTurnstile(
   const [turnstileWidgetId, setTurnstileWidgetId] = useState("");
 
   function buildTurnstile() {
+    if (ref.current == null) {
+      return;
+    }
+
     const widgetId = turnstile.render(ref.current, {
       sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "",
       language: "en",
@@ -20,6 +36,10 @@ export default function useTurnstile(
       },
       "expired-callback": (ref: RefObject<HTMLDivElement>) => {
         updateToken(""); // reset token
+
+        if (ref.current == null) {
+          return;
+        }
 
         turnstile.reset(ref.current);
         turnstile.execute(ref.current);
