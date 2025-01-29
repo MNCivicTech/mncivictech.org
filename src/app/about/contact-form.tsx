@@ -130,7 +130,10 @@ export default function ContactForm() {
             render={() => (
               <FormItem>
                 <FormControl>
-                  <div ref={ref} data-sitekey="0x4AAAAAAA6mNfPWlxK11Esg" />
+                  <div
+                    ref={ref}
+                    data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
