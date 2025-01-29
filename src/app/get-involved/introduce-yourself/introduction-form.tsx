@@ -1,7 +1,13 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import Script from "next/script";
+import { useRef, useTransition } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
 import { introductionFormAction } from "@/app/get-involved/introduce-yourself/introduction-form-action";
-import useTurnstile from "@/hooks/useTurnstile";
+import { useTurnstile } from "@/hooks/useTurnstile";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {
@@ -21,11 +27,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/ui/Select";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Script from "next/script";
-import { useRef, useTransition } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 const skills = [
   "JavaScript",
@@ -74,7 +75,6 @@ export const introductionFormSchema = z.object({
   turnstileToken: z
     .string()
     .min(1, { message: "You must verify you're human" }),
-  // newsletter: z.boolean(),
 });
 
 export default function IntroductionForm() {
@@ -95,12 +95,12 @@ export default function IntroductionForm() {
       currentRole: "",
       disciplines: [],
       turnstileToken: "",
-      // newsletter: false,
     },
   });
 
-  const { buildTurnstile } = useTurnstile(ref, (token: string) =>
-    form.setValue("turnstileToken", token),
+  const { buildTurnstile, resetTurnstile } = useTurnstile(
+    ref,
+    (token: string) => form.setValue("turnstileToken", token),
   );
 
   const onSubmit = form.handleSubmit((data) => {
@@ -113,10 +113,11 @@ export default function IntroductionForm() {
         );
         form.reset();
       } catch (error) {
-        console.error(error);
         alert(
           "There was an error submitting your introduction. Please try again later.",
         );
+
+        resetTurnstile(ref);
       }
     });
   });
@@ -357,22 +358,6 @@ export default function IntroductionForm() {
               </FormItem>
             )}
           />
-
-          {/*<FormField*/}
-          {/*  control={form.control}*/}
-          {/*  name="newsletter"*/}
-          {/*  render={({ field }) => (*/}
-          {/*    <FormItem className="flex flex-row items-center space-x-3 space-y-0">*/}
-          {/*      <FormControl>*/}
-          {/*        <Checkbox*/}
-          {/*          checked={field.value}*/}
-          {/*          onCheckedChange={(checked) => field.onChange(checked)}*/}
-          {/*        />*/}
-          {/*      </FormControl>*/}
-          {/*      <FormLabel>Opt into the newsletter</FormLabel>*/}
-          {/*    </FormItem>*/}
-          {/*  )}*/}
-          {/*/>*/}
 
           <FormField
             control={form.control}

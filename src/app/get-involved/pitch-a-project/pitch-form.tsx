@@ -1,7 +1,13 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import Script from "next/script";
+import { useRef, useTransition } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
 import { projectFormAction } from "@/app/get-involved/pitch-a-project/project-form-action";
-import useTurnstile from "@/hooks/useTurnstile";
+import { useTurnstile } from "@/hooks/useTurnstile";
 import { Button } from "@/ui/Button";
 import { Checkbox } from "@/ui/Checkbox";
 import {
@@ -22,11 +28,6 @@ import {
   SelectValue,
 } from "@/ui/Select";
 import { Textarea } from "@/ui/Textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Script from "next/script";
-import { useRef, useTransition } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 const requirements = [
   "Open Source",
@@ -86,8 +87,9 @@ export default function PitchForm() {
     },
   });
 
-  const { buildTurnstile } = useTurnstile(ref, (token: string) =>
-    form.setValue("turnstileToken", token),
+  const { buildTurnstile, resetTurnstile } = useTurnstile(
+    ref,
+    (token: string) => form.setValue("turnstileToken", token),
   );
 
   const onSubmit = form.handleSubmit((data) => {
@@ -100,10 +102,11 @@ export default function PitchForm() {
         );
         form.reset();
       } catch (error) {
-        console.error(error);
         alert(
           "There was an error submitting your pitch. Please try again later.",
         );
+
+        resetTurnstile(ref);
       }
     });
   });

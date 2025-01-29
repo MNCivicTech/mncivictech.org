@@ -1,3 +1,5 @@
+"use client";
+
 import { type RefObject, useEffect, useState } from "react";
 
 declare const turnstile: {
@@ -16,12 +18,13 @@ declare const turnstile: {
   reset: (element: string | HTMLElement) => void;
 };
 
-export default function useTurnstile(
+export function useTurnstile(
   ref: RefObject<HTMLDivElement>,
   updateToken: (token: string) => void,
 ) {
   const [turnstileWidgetId, setTurnstileWidgetId] = useState("");
 
+  // mount and render turnstile widget
   function buildTurnstile() {
     if (ref.current == null) {
       return;
@@ -49,6 +52,16 @@ export default function useTurnstile(
     setTurnstileWidgetId(widgetId);
   }
 
+  // if validation failed, we can reset the turnstile widget
+  function resetTurnstile(ref: RefObject<HTMLDivElement>) {
+    if (ref.current == null) {
+      return;
+    }
+
+    turnstile.reset(ref.current);
+    turnstile.execute(ref.current);
+  }
+
   // remove turnstile widget when component unmounts
   useEffect(() => {
     return () => {
@@ -60,5 +73,6 @@ export default function useTurnstile(
 
   return {
     buildTurnstile,
+    resetTurnstile,
   };
 }

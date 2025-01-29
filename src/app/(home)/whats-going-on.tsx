@@ -72,29 +72,6 @@ export default function WhatsGoingOn() {
           </CardFooter>
         </Card>
 
-        {/*FIXME: Add back if we have a newsletter in future*/}
-        {/*<Card className="flex flex-[3] flex-col border border-green-900 bg-white md:my-8">*/}
-        {/*  <CardHeader>*/}
-        {/*    <div className="flex flex-col items-start gap-4 md:mb-4 md:flex-row md:items-center">*/}
-        {/*      <CardTitle>Newsletter</CardTitle>*/}
-        {/*    </div>*/}
-        {/*    <CardDescription>*/}
-        {/*      Our Newsletter allows you to stay informed with upcoming events,*/}
-        {/*      new projects, and other initiatives we have going on.*/}
-        {/*    </CardDescription>*/}
-        {/*  </CardHeader>*/}
-
-        {/*  <CardContent className="max-w-lg flex-grow" />*/}
-
-        {/*  <CardFooter>*/}
-        {/*    <Link href="/get-involved/newsletter" className="w-full">*/}
-        {/*      <Button variant="blue" className="w-full">*/}
-        {/*        {"Newsletter ->"}*/}
-        {/*      </Button>*/}
-        {/*    </Link>*/}
-        {/*  </CardFooter>*/}
-        {/*</Card>*/}
-
         {/* Right card */}
         <Card className="flex flex-[3] flex-col border border-green-900 bg-white md:my-8">
           <CardHeader>
@@ -111,7 +88,7 @@ export default function WhatsGoingOn() {
           <CardContent className="max-w-lg flex-grow" />
 
           <CardFooter>
-            <Link href="/get-involved/newsletter" className="w-full">
+            <Link href="https://github.mncivictech.org" className="w-full">
               <Button variant="blue" className="w-full">
                 <GithubIcon className="mx-2 size-4" />
                 {"GitHub ->"}

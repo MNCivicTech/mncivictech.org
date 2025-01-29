@@ -1,7 +1,13 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import Script from "next/script";
+import { useRef, useTransition } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
 import { contactFormAction } from "@/app/about/contact-form-action";
-import useTurnstile from "@/hooks/useTurnstile";
+import { useTurnstile } from "@/hooks/useTurnstile";
 import { Button } from "@/ui/Button";
 import {
   Form,
@@ -13,11 +19,6 @@ import {
 } from "@/ui/Form";
 import { Input } from "@/ui/Input";
 import { Textarea } from "@/ui/Textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Script from "next/script";
-import { useRef, useTransition } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 export const contactFormSchema = z.object({
   fullName: z.string().min(2, { message: "Required" }),
@@ -26,7 +27,6 @@ export const contactFormSchema = z.object({
   turnstileToken: z
     .string()
     .min(1, { message: "You must verify you're human" }),
-  // newsletter: z.boolean(),
 });
 
 export default function ContactForm() {
@@ -41,12 +41,12 @@ export default function ContactForm() {
       email: "",
       message: "",
       turnstileToken: "",
-      // newsletter: false,
     },
   });
 
-  const { buildTurnstile } = useTurnstile(ref, (token: string) =>
-    form.setValue("turnstileToken", token),
+  const { buildTurnstile, resetTurnstile } = useTurnstile(
+    ref,
+    (token: string) => form.setValue("turnstileToken", token),
   );
 
   const onSubmit = form.handleSubmit((data) => {
@@ -59,10 +59,11 @@ export default function ContactForm() {
         );
         form.reset();
       } catch (error) {
-        console.error(error);
         alert(
           "There was an error submitting your message. Please try again later.",
         );
+
+        resetTurnstile(ref);
       }
     });
   });
