@@ -68,13 +68,15 @@ export default function MeetingCountdown() {
           {!isActiveMeeting && (
             <>
               The next meeting is{" "}
-              {nextMeeting.toLocaleDateString("en-US", {
+              {nextMeeting.toLocaleString("en-US", {
                 weekday: "long",
                 month: "long",
                 day: "numeric",
                 year: "numeric",
-              })}{" "}
-              at 7:00 PM CST
+                hour: "numeric",
+                minute: "2-digit",
+                timeZoneName: "short",
+              })}
               <br />
             </>
           )}
