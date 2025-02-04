@@ -1,5 +1,9 @@
 "use client";
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+import { getNextMeeting } from "@/app/get-involved/meeting/get-next-meeting";
 import { Button } from "@/ui/Button";
 import {
   Card,
@@ -8,31 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/ui/Card";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-
-function getNextMeeting(): Date {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth();
-
-  let meetingDate = new Date(year, month, 1, 19, 0, 0); // Start at 7PM CST on the 1st of the month
-
-  // Find the first Tuesday of the month
-  while (meetingDate.getDay() !== 2) {
-    meetingDate.setDate(meetingDate.getDate() + 1);
-  }
-
-  // If the calculated meeting time is in the past, move to next month
-  if (meetingDate <= now) {
-    meetingDate = new Date(year, month + 1, 1, 19, 0, 0);
-    while (meetingDate.getDay() !== 2) {
-      meetingDate.setDate(meetingDate.getDate() + 1);
-    }
-  }
-
-  return meetingDate;
-}
 
 function formatTimeRemaining(timeRemaining: number) {
   const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
