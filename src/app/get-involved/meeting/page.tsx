@@ -29,7 +29,10 @@ export default function MeetingPage() {
         questions, and stay engaged in our latest projects.
         <br />
         <br />
-        We meet every month, on the first Tuesday of the month at 7pm CST.
+        We meet every month, on the{" "}
+        <span className="font-bold">
+          first Tuesday of the month at 7pm CST.
+        </span>
       </p>
 
       <MeetingCountdown />

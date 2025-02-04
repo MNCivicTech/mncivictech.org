@@ -11,30 +11,27 @@ import {
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-function getNextMeeting() {
+function getNextMeeting(): Date {
   const now = new Date();
-  const meeting = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
 
-  // Set to first Tuesday of current month
-  meeting.setDate(1);
+  let meetingDate = new Date(year, month, 1, 19, 0, 0); // Start at 7PM CST on the 1st of the month
 
-  while (meeting.getDay() !== 2) {
-    meeting.setDate(meeting.getDate() + 1); // 2 is Tuesday
+  // Find the first Tuesday of the month
+  while (meetingDate.getDay() !== 2) {
+    meetingDate.setDate(meetingDate.getDate() + 1);
   }
 
-  // Set time to 7 PM CST
-  meeting.setHours(19, 0, 0, 0);
-
-  // If this month's meeting has passed, move to next month
-  if (now > meeting) {
-    meeting.setMonth(meeting.getMonth() + 1);
-    meeting.setDate(1);
-    while (meeting.getDay() !== 2) {
-      meeting.setDate(meeting.getDate() + 1);
+  // If the calculated meeting time is in the past, move to next month
+  if (meetingDate <= now) {
+    meetingDate = new Date(year, month + 1, 1, 19, 0, 0);
+    while (meetingDate.getDay() !== 2) {
+      meetingDate.setDate(meetingDate.getDate() + 1);
     }
   }
 
-  return meeting;
+  return meetingDate;
 }
 
 function formatTimeRemaining(timeRemaining: number) {
@@ -50,11 +47,20 @@ function formatTimeRemaining(timeRemaining: number) {
 
 export default function MeetingCountdown() {
   const [timeRemaining, setTimeRemaining] = useState<number>(0);
+  const [isActiveMeeting, setIsActiveMeeting] = useState<boolean>(false);
 
   useEffect(() => {
     const calculateTimeRemaining = () => {
       const nextMeeting = getNextMeeting();
       setTimeRemaining(nextMeeting.getTime() - Date.now());
+
+      const now = new Date();
+
+      // if the meeting is currently happening
+      setIsActiveMeeting(
+        now >= nextMeeting &&
+          now < new Date(nextMeeting.getTime() + 60 * 60 * 1000),
+      );
     };
 
     calculateTimeRemaining();
@@ -74,39 +80,51 @@ export default function MeetingCountdown() {
         </div>
 
         <CardDescription>
-          The next meeting is{" "}
-          {nextMeeting.toLocaleDateString("en-US", {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })}{" "}
-          at 7:00 PM CST
-          <br />
+          {isActiveMeeting && (
+            <div className="mb-4 rounded-lg">
+              🚀 Our meeting is happening now! Come join us before it's over!
+            </div>
+          )}
+
+          {!isActiveMeeting && (
+            <>
+              The next meeting is{" "}
+              {nextMeeting.toLocaleDateString("en-US", {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}{" "}
+              at 7:00 PM CST
+              <br />
+            </>
+          )}
         </CardDescription>
 
         {/* Countdown Section */}
-        <div className="mt-4 flex justify-center gap-1 text-center sm:justify-start sm:gap-4 md:mt-12">
-          <div className="rounded-lg p-3">
-            <div className="font-mono text-xl sm:text-3xl">{days}</div>
-            <div className="text-sm sm:text-base">days</div>
-          </div>
+        {!isActiveMeeting && (
+          <div className="mt-4 flex justify-center gap-1 text-center sm:justify-start sm:gap-4 md:mt-12">
+            <div className="rounded-lg p-3">
+              <div className="font-mono text-xl sm:text-3xl">{days}</div>
+              <div className="text-sm sm:text-base">days</div>
+            </div>
 
-          <div className="rounded-lg p-3">
-            <div className="font-mono text-xl sm:text-3xl">{hours}</div>
-            <div className="text-sm sm:text-base">hours</div>
-          </div>
+            <div className="rounded-lg p-3">
+              <div className="font-mono text-xl sm:text-3xl">{hours}</div>
+              <div className="text-sm sm:text-base">hours</div>
+            </div>
 
-          <div className="rounded-lg p-3">
-            <div className="font-mono text-xl sm:text-3xl">{minutes}</div>
-            <div className="text-sm sm:text-base">minutes</div>
-          </div>
+            <div className="rounded-lg p-3">
+              <div className="font-mono text-xl sm:text-3xl">{minutes}</div>
+              <div className="text-sm sm:text-base">minutes</div>
+            </div>
 
-          <div className="hidden rounded-lg p-3 sm:block">
-            <div className="font-mono text-xl sm:text-3xl">{seconds}</div>
-            <div className="text-sm sm:text-base">seconds</div>
+            <div className="hidden rounded-lg p-3 sm:block">
+              <div className="font-mono text-xl sm:text-3xl">{seconds}</div>
+              <div className="text-sm sm:text-base">seconds</div>
+            </div>
           </div>
-        </div>
+        )}
       </CardHeader>
 
       <CardContent className="flex flex-col gap-4 md:flex-row md:gap-8">
