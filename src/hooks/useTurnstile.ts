@@ -10,7 +10,7 @@ declare const turnstile: {
       language: string;
       execution: "render" | "execute";
       callback: (token: string) => void;
-      "expired-callback": (ref: RefObject<HTMLDivElement>) => void;
+      "expired-callback": (ref: RefObject<HTMLDivElement | null>) => void;
     },
   ) => string;
   remove: (widgetId: string) => void;
@@ -19,7 +19,7 @@ declare const turnstile: {
 };
 
 export function useTurnstile(
-  ref: RefObject<HTMLDivElement>,
+  ref: RefObject<HTMLDivElement | null>,
   updateToken: (token: string) => void,
 ) {
   const [turnstileWidgetId, setTurnstileWidgetId] = useState("");
@@ -37,7 +37,7 @@ export function useTurnstile(
       callback: (token: string) => {
         updateToken(token); // update token
       },
-      "expired-callback": (ref: RefObject<HTMLDivElement>) => {
+      "expired-callback": (ref: RefObject<HTMLDivElement | null>) => {
         updateToken(""); // reset token
 
         if (ref.current == null) {
@@ -53,7 +53,7 @@ export function useTurnstile(
   }
 
   // if validation failed, we can reset the turnstile widget
-  function resetTurnstile(ref: RefObject<HTMLDivElement>) {
+  function resetTurnstile(ref: RefObject<HTMLDivElement | null>) {
     if (ref.current == null) {
       return;
     }
