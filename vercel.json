@@ -1,0 +1,35 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "github.mncivictech.org"
+        }
+      ],
+      "destination": "https://github.com/MNCivicTech/mncivictech.org"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "linkedin.mncivictech.org"
+        }
+      ],
+      "destination": "https://www.linkedin.com/company/mncivictech/"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "slack.mncivictech.org"
+        }
+      ],
+      "destination": "https://join.slack.com/t/mncivictech/shared_invite/zt-2uiepffhv-lhGfZevXPbSvG9cFhnCOzg"
+    }
+  ]
+}
